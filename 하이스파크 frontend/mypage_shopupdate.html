@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원정보</title>
+    <style>
+        *{
+            margin:0;padding:0;
+            box-sizing:border-box;
+            font-family: 'Pretendard';
+            color:#1a1a1a;
+        }
+
+
+        .order-detail-actions {
+            display: flex;
+            justify-content: center;  /* 가운데 정렬 */
+            gap: 10px;                /* 버튼 사이 간격 */
+            margin : 20px 0;
+        }
+
+        /* 버튼 공통 */
+        .update, .cancel {
+            display: inline-block;  /* block 대신 inline-block */
+            margin: 0;              /* margin auto 제거 */
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .update {
+            background: #1a1a1a;
+            color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        .cancel {
+            background: #fff;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+
+        .addressSearchBtn{
+            width:80px;
+            height:42px;
+            border:1px solid #ccc;
+            background-color: white;
+            margin-left: 4px;
+        }
+
+        ol,ul{list-style: none;}
+
+        button, a, summary, input[type='checkbox']{cursor:pointer;}
+
+        body{
+            width:100%;height:100%;
+        }
+        .mainBox{
+            min-width:500px;
+            max-width:900px;
+            min-height:100vh;
+            display: flex;
+            flex-direction: column;
+            border:1px solid #ccc; margin:0 auto;
+            background-color: #eee;
+        }
+
+        .contentWrap{
+            flex: 1;
+        }
+
+        .ordertitle{
+            width:100%;height:65px;
+            display:flex;align-items:center;justify-content:center;
+            color:#fafafa;background-color: #1a1a1a;
+            font-size:20px; font-weight: 700;
+        }
+        .title{
+            background-color: white;
+            position:relative;
+            padding:16px 0;
+            width:100%;height:60px;
+        }
+        h1{
+            margin: 0 95px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .hMenu{
+            position:absolute;
+            top:50%;
+            margin-top: -14px;
+        }
+
+        .hLeft{
+            left: 0;
+            margin-left:10px;
+        }
+
+        .hRight{
+            width:72px;
+            right:0;
+            margin-right:20px;
+            display: flex;
+            justify-content:space-between;
+        }
+
+        /* box-닫히는 요소마다 변수명 추가 */
+        .addressBox,.orderProduct,.paymentBox, .paymentMethodBox, .paymentTermsBox{
+            width:100%;
+            border-bottom:1px solid #ccc;
+            background-color: white;
+            padding: 0 20px;
+        }
+
+        .orderProduct, .paymentBox, .paymentMethodBox, .paymentTermsBox{
+            margin-top:20px;
+        }
+
+
+        .addressBox .label{
+            font-size: 14px;
+            vertical-align: top;
+            padding-top: 18px;
+        }
+
+        /* 배송지 필수정보, 주문갯수  */
+        .label .required, .orderProduct span{
+            color:#035fe0;
+        }
+
+        /* 화살표누르면 접히는거 */
+        summary, .paymentTermsBox{
+            width:100%;
+            list-style: none;
+            text-align: left;
+            position: relative;
+            font-weight: 700;
+        }
+
+        summary{
+            height:67px;
+            padding: 20px 0;
+        }
+
+        .paymentTermsBox{
+            padding:20px;
+        }
+
+        summary::marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "";
+            background: url('../images/arrow-up.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 28px;
+            height: 28px;
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        details:not([open]) summary::after {
+            content: "";
+            background: url('../images/arrow-down.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 28px;
+            height: 28px;
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 50%;
+        }
+
+        #acceptant, #address1, #address2{
+            width: 100%;
+        }
+
+        input[type="text"], select{
+            height: 42px;
+            padding: 10px 11px 10px 10px;
+            border: 1px solid #ccc;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            color: #1a1a1a;
+            font-weight: 400;
+            line-height: 14px;
+            
+        }
+
+        table{
+            width:100%;
+            margin-bottom:20px;
+        }
+
+        .phone-input{width:42px;}
+
+        .inputBox{padding:5px 0;}
+
+        .inputBox li{margin-bottom:10px 0;}
+
+        .phone-group,.email-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .phone-group select, .phone-group input[type="text"]{width:32%;}
+
+        .phone-group span, .email-group span{line-height: 40px;}
+
+
+        .email-input,.domain-select{width:48%;}
+
+        .deliveryMessage, #deliveryText{
+            width:100%;
+        }
+
+        #deliveryText{
+            margin-top:10px;
+        }
+
+    </style>
+            
+</head>
+<body>
+    <div class="ordertitle">
+        주문수정
+    </div>
+    <div class="addressBox">
+        <details open>
+            <summary>배송지</summary>
+            <div>
+
+                <table>
+                    <colgroup>
+                        <col width="102px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td class="label">받는사람 <span class="required">*</span></td>
+                            <td class="inputBox"><input type="text" id="acceptant" name="acceptant"/></td>
+                        </tr>
+                        <tr>
+                            <td class="label">주소 <span class="required">*</span></td>
+                            <td class="inputBox">
+                                <ul>
+                                    <li>
+                                        <div style="margin-bottom: 10px;">
+                                            <input type="text" placeholder="우편번호" style="width: 160px;" name="zipcode" />
+                                            <button type="button" class="addressSearchBtn">주소검색</button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div style="margin-bottom: 10px;">
+                                            <input type="text" placeholder="기본주소"  id="address2" name="address1" />
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <input type="text" placeholder="나머지 주소(선택 입력 가능)" id="address2" name="address2" />
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">휴대전화 <span class="required">*</span></td>
+                            <td class="inputBox">
+                                <div class="phone-group">
+                                    <select>
+                                        <option>010</option>
+                                        <option>011</option>
+                                        <option>016</option>
+                                        <option>017</option>
+                                        <option>018</option>
+                                        <option>019</option>
+                                    </select>
+                                    <span>-</span>
+                                    <input type="text" class="phone-input" />
+                                    <span>-</span>
+                                    <input type="text" class="phone-input" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">이메일 <span class="required">*</span></td>
+                            <td class="inputBox">
+                                <div class="email-group">
+                                    <input type="text" class="email-input" />
+                                    <span>@</span>
+                                    <select class="domain-select">
+                                        <option>직접입력</option>
+                                        <option>naver.com</option>
+                                        <option>gmail.com</option>
+                                        <option>daum.net</option>
+                                        <option>hotmail.com</option>
+                                        <option>yahoo.co.kr</option>
+                                    </select>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">배송메세지</td>
+                            <td class="inputBox">
+                                <div class="messageBox">
+                                    <select class="deliveryMessage">
+                                        <option>배송메모를 선택해주세요</option>
+                                        <option>배송 전 연락 바랍니다</option>
+                                        <option>부재 시 경비실에 맡겨주세요</option>
+                                        <option>부재 시 문 앞에 놓아주세요</option>
+                                        <option>파손의 위험이 있는 상품입니다. 배송 시 주의해 주세요</option>
+                                        <option value="selfText">직접입력</option>
+                                    </select>
+                                </div>
+                                <input type="text" id="deliveryText" placeholder="배송메모 직접 입력" style="display:none;" />
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <div class="order-detail-actions">
+                    <button onclick="confirmAction()" class = "btn update">수정</button>
+                    <button onclick="cancelAction()" class = "cancel" >취소</button>
+                </div>
+            </div>
+        </details>
+        
+        <script>
+            function confirmAction() {
+                alert("수정 완료되었습니다.");
+                window.close(); // 확인 후 닫기
+            }
+
+            function cancelAction() {
+                window.close(); // 취소 버튼 클릭 시 팝업 닫기
+            }
+        </script>
+    </div>
+
+</body>
+</html>

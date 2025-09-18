@@ -1,0 +1,190 @@
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%> -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>HISPARK NOTICE LIST</title>
+    <link rel="stylesheet" href="css/c_list.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/base.css">
+    
+    
+</head>
+<body>
+	<div id="header">
+		
+		<div id="snbBox">
+			<h1><img src="images/hispark_crop.png" alt="(로고)" /></h1>
+			<div id="snb">
+				<ul>
+					<li><a href="#">로그인</a></li>
+					<li><a href="#">회원가입</a></li>
+					<li><a href="main.html">메인으로</a></li>
+				</ul>
+
+			</div>
+
+            <!-- 우측 아이콘 -->
+            <div class="hMenu hRight">
+            <a href="mypage_community.html"><img src="images/user.png" style="width:28px;" /></a>
+        </div>
+		</div>
+	</div>
+
+
+    <div class="location">
+        <ul>
+            <li><a href="bsm(temp_main).html">홈</a></li>
+            <li>게시판</li>
+            <li class="current"><a href="notice_list.html">NOTICE</a></li>
+        </ul>
+    </div>
+
+    <div class="board-container">
+        <h2 class="board-title">NOTICE</h2>
+        
+        <table class="post-table">
+            <colgroup>
+                <col style="width: 80px;">
+                <col>
+                <col style="width: 90px;">
+                <col style="width: 74px;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>조회</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>공지</td>
+                    <td>
+                        <span class="post-title"><a href="notice_view.html">[2025 TOUR] MD PRE-ORDER 판매 안내</a></span>
+                    </td>
+                    <td>관리자</td>
+                    <td>4775</td>
+                </tr>
+                <tr>
+                    <td>공지</td>
+                    <td>
+                        <span class="post-title"><a href="#">[2025 TOUR] MD 판매 안내</a></span>
+                    </td>
+                    <td>관리자</td>
+                    <td>5890</td>
+                </tr>
+                <tr>
+                    <td>공지</td>
+                    <td>
+                        <span class="post-title"><a href="#">[KAKURENBO] MD 구매 특전 지급 안내</a></span>
+                    </td>
+                    <td>관리자</td>
+                    <td>5890</td>
+                </tr>
+                <tr>
+                    <td>공지</td>
+                    <td>
+                        <span class="post-title"><a href="#">	[HAPPY PLAVE DAY] MD PRE-ORDER 판매 안내</a></span>
+                    </td>
+                    <td>관리자</td>
+                    <td>5890</td>
+                </tr>
+                <tr>
+                    <td>공지</td>
+                    <td>
+                        <span class="post-title"><a href="#">[HAPPY PLAVE DAY] MD 판매 안내</a></span>
+                    </td>
+                    <td>관리자</td>
+                    <td>5890</td>
+                </tr>
+                
+            </tbody>
+        </table>
+
+        <div class="search-container" style="justify-content: space-between;">
+		    <div style="display: flex; gap: 8px;">
+		        <select>
+		            <option>제목</option>
+		            <option>내용</option>
+		            <option>작성자</option>
+		        </select>
+		        <input type="text" placeholder="검색어를 입력하세요">
+		        <button>찾기</button>
+		    </div>
+		    <a href="notice_write.html" class="write-button">글쓰기</a>
+		</div>
+        
+       <div class="pg-container">
+		    <div class="paginator">
+		        <div class="pg-btns">
+		            <button>
+		                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+		                    <path d="M21.9323 22.5362C22.6042 21.8162 22.6042 20.7122 21.8842 20.0162L13.5562 12.0002L23.1562 2.76019L21.4762 1.00819L10.0282 12.0002L21.4763 22.9922L21.9323 22.5122L21.9323 22.5362Z" fill="currentColor"/>
+		                    <path d="M12.4786 22.5362C13.1506 21.8162 13.1506 20.7122 12.4306 20.0162L4.10256 12.0002L13.7266 2.76019L12.0466 1.00819L0.598563 12.0002L12.0226 22.9922L12.4786 22.5122L12.4786 22.5362Z" fill="currentColor"/>
+		                </svg>
+		            </button>
+		            <button>
+		                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+		                    <path d="M16.3325 1.47C17.0125 2.18 16.9925 3.3 16.2825 3.98L7.9425 12L17.5625 21.25L15.8825 23L4.4425 12L15.8825 1L16.3325 1.47Z" fill="currentColor"/>
+		                </svg>
+		            </button>
+		        </div>
+		
+		        <div class="pg-numbers">
+		            <a class="active">1</a>
+		            <a href="#">2</a>
+		            <a href="#">3</a>
+		            <a href="#">4</a>
+		            <a href="#">5</a>
+		        </div>
+		
+		        <div class="pg-btns">
+		            <button>
+		                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+		                    <path d="M7.6675 1.47C6.9875 2.18 7.0075 3.3 7.7175 3.98L16.0575 12L6.4375 21.25L8.1175 23L19.5575 12L8.1175 1L7.6675 1.47Z" fill="currentColor"/>
+		                </svg>
+		            </button>
+		            <button>
+		                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+		                    <path d="M2.06775 1.46381C1.39575 2.18381 1.39575 3.28781 2.11575 3.98381L10.4437 11.9998L0.84375 21.2398L2.52375 22.9918L13.9718 11.9998L2.52375 1.00781L2.06775 1.48781V1.46381Z" fill="currentColor"/>
+		                    <path d="M11.5214 1.46381C10.8494 2.18381 10.8494 3.28781 11.5694 3.98381L19.8974 11.9998L10.2734 21.2398L11.9534 22.9918L23.4014 11.9998L11.9774 1.00781L11.5214 1.48781V1.46381Z" fill="currentColor"/>
+		                </svg>
+		            </button>
+		        </div>
+		    </div>
+		</div>
+
+    </div>
+
+    <div id="footerWrap">
+		<div id="footer">
+			
+			<div id="finfo">
+				<div id="flogo"><img src="images/hispark.png" alt="하이스파크 로고" /></div>
+				<address>
+					<ul>
+						<li>㈜스파크</li>
+						<li>대표자 김슬비</li>
+						<li class="tnone">주소 서울시 용산구 독서당로 111(한남더힐)</li>
+						<li class="webnone">소비자상담실 02)123-4567</li>
+						<li>사업자등록번호 012-345-6789</li>
+						<li class="tnone">통신판매신고 제 강남 – 1160호</li>
+						<li class="copy">COPYRIGHT © 2025 HI-SPARK <span>ALL RIGHTS RESERVED.</span></li>
+					</ul>
+				</address>
+
+			</div>
+            <div class="social-links">
+                <a href="https://www.youtube.com/user/smtown/" class="youtube-button" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://www.instagram.com/hispark__official/" class="instagram-button" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://twitter.com/hispark5/" class="x-button" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://www.facebook.com/smtown/" class="facebook-button" target="_blank" rel="noopener noreferrer"></a>
+            </div>
+		</div>
+	</div>
+</body>
+</html>

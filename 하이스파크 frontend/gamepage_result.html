@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test starting page</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="css/gamepage.css">
+    <style>
+
+        /* result_section */
+        .result_box {
+            background-color: #fafafa;
+            min-height: 650px;
+            justify-content: space-between;
+            text-align: center;
+        }
+        .result_box h3 {
+            font-size:1.6rem;
+        }
+        .result_box .result_button_box {
+            /*border: 1px solid black;*/
+            height:73px; width:100%;
+            margin-bottom: 25px;
+            display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 20px;
+        }
+        .result_button_box button {
+            height: 70px; width: 180px;
+        }
+
+        .button_box {
+            min-height:250px;
+            background-color: #fafafa;
+        }
+
+        /* stats_modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            inset: 0;  
+            background-color: rgba(0,0,0,0.5); /* 반투명 배경 */
+            justify-content: center;
+            align-items: center;
+        }
+        .modal_content {
+            background-color: #fafafa;
+            max-width: 80%;
+            max-height: 100%;
+            overflow-y: auto;
+            
+            /*display: flex; flex-direction: column; align-items: center; gap: 1.5%;*/
+        }
+
+        .topbar {
+            border:1px solid black;
+            position:relative;
+            height:10vh; width:75vh; 
+            margin:auto;
+            display:flex; flex-direction:column; justify-content: center; align-items: center;
+            text-align: center;
+        }
+        .topbar .prev {
+            position:absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        .topbar h3 {
+            font-size:1.6rem;
+        }
+        .stat_box {
+            border:1px solid black;
+            height:86vh; width:75vh; 
+            margin:auto; padding: 2% 0;
+            display:flex; flex-direction:column; align-items: center; justify-content: flex-start; gap: 1.5%;
+        }
+        .club {
+            border: 1px solid white;
+            width: 90%; height: 18%;
+            display: flex; flex-direction: row;
+            box-sizing: border-box;
+        }
+        .club div {
+            border:1px solid black;
+        }
+        .club_image {
+            /*background-image: url('');*/
+            background-color: lightgray;
+            flex: 4;
+        }
+        .club > div:nth-child(2) {
+            flex: 5;
+        }
+        .club_stats {
+            flex: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="result_section">
+        <div class="result_box box">
+            <h3>나에게 어울리는 동아리는...</h3>
+            <h3>'제과제빵부'입니다!</h3>
+            <div class="result_button_box">
+                <button type="button" class="viewpage_button">동아리 구경하기</button>
+                <button type="button" class="save_button">이미지 저장하기</button>
+            </div>
+        </div>
+        <div class="button_box box">
+            <button type="button" class="share_button black">테스트 공유하기</button>
+            <button type="button" class="result_stats_button">다른 친구들 결과 보러가기</button>
+            <button type="button" class="retry_button">다시 해보기</button>
+        </div>
+    </section>
+
+    <div class="stats_modal modal">
+        <div class="modal_content">
+            <div class="topbar">
+                <div class="prev"><</div>
+                <h3>동아리 방문 순위</h3>
+            </div>
+            <div class="stat_box">
+                <div class="club">
+                    <div class="club_image"></div>
+                    <div>제과제빵부</div>
+                    <div class="club_stats">23%</div>
+                </div>
+                <div class="club">
+                    <div class="club_image"></div>
+                    <div>밴드부</div>
+                    <div class="club_stats">22%</div>
+                </div>
+                <div class="club">
+                    <div class="club_image"></div>
+                    <div>운동부</div>
+                    <div class="club_stats">21%</div>
+                </div>
+                <div class="club">
+                    <div class="club_image"></div>
+                    <div>도서부</div>
+                    <div class="club_stats">19%</div>
+                </div>
+                <div class="club">
+                    <div class="club_image"></div>
+                    <div>선도부</div>
+                    <div class="club_stats">15%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        /* 이벤트 리스너 */
+
+        ////////// 결과에 따라 다른 결과 페이지 출력 //////////
+        // (임시로 고정된 결과 출력)
+
+
+
+        // 동아리 목록 페이지로 이동
+        $(".viewpage_button").on("click", function() {
+            location.href = 'Artist_detail.html'; 
+        });
+
+        // 이미지 저장하기 (임시로 alert로 대체)
+        $(".save_button").on("click", function() {
+            alert('결과가 저장되었습니다!');
+            //////// 결과 이미지 저장하는 코드 추가 가능 ////////
+        });
+
+
+        // 테스트 공유하기 (임시로 alert로 대체)
+        
+        $(".share_button").on("click", function() {
+            // 임시 창 띄우기
+            shareOrFallback({
+                title: '나에게 어울리는 동아리는?',
+                text: '이 테스트로 나에게 어울리는 동아리를 찾아보세요!',
+                url: new URL(location.href).toString()
+            });
+            //////// 테스트 공유하는 코드 추가 가능 ////////
+        });
+        
+        /*
+        $(".share_button").on("click", function() {
+            const dummy = document.createElement('input');
+            const text = window.location.href; // 현재 페이지 URL
+
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+
+            alert('테스트 URL이 복사되었습니다! 친구들에게 공유해보세요.');
+        });
+        */
+        
+
+
+        const $modal = $(".modal");
+
+        // 통계 모달 열기
+        $(".result_stats_button").on("click", function() {
+            $modal.css("display", "flex");
+        });
+
+        // 통계 모달 닫기
+        $(".prev").on("click", function() {
+            $modal.css("display", "none");
+        });
+
+        // 모달 바깥 클릭 시 모달 닫기
+        $modal.on("click", function(e) {
+            if (e.target === this) {
+                $modal.css("display", "none");
+            }
+        });
+
+        // 게임 시작 페이지로 이동
+        $(".retry_button").on("click", function() {
+            location.href = '/game'; 
+        });
+
+
+
+        /* 함수 정의 */
+
+        async function shareOrFallback({title, text, url}) {
+        if (navigator.share) {
+            try { return await navigator.share({title, text, url}); }
+            catch(_) { /* 취소 or 실패 → 폴백 진행 */ }
+        }
+        // 폴백: 링크 복사
+        await navigator.clipboard.writeText(url);
+        alert('링크를 클립보드에 복사했어요!');
+        }
+
+        
+    </script>
+</body>
+</html>

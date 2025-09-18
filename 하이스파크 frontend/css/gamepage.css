@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+/* 게임페이지 공통 스타일 */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+html, body {
+    min-height:100%; 
+    margin:0; padding:0;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+body{
+	background: #f6faff;
+}
+
+button, input, select, textarea {   /* 모든 폼 요소에 동일한 폰트 적용 */
+    font-family: inherit;
+    font-weight: inherit;
+}
+input {
+    border: 1px solid #ccc;
+    padding: 10px;
+    padding-left: 15px;
+    margin: 5px;
+    box-sizing: border-box;
+    width: 420px;
+    height: 60px; 
+    font-size: 0.9rem;
+    
+}
+input:focus {
+    outline: 1.5 solid #1a1a1a;
+}
+button {
+    
+    background-color: #fafafa; 
+    border:1px solid #ccc;
+    width: 420px;
+    height: 55px;
+    color: #1a1a1a;
+    gap: 15px;
+    font-size: 0.9rem;
+    margin: 5px;
+}
+.black {
+    background-color: #1a1a1a; 
+    color: #fafafa;
+}
+.box {
+    /*border:1px solid black;*/
+    box-sizing: border-box;
+    max-width: 520px;
+    margin:auto; 
+    display:flex; flex-direction:column; align-items: center;
+}

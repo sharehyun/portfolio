@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/hispark_crop.png">
+    <title>HI-SPARK</title>
+    <style>
+        *{
+            margin: 0; padding:0;
+            box-sizing:border-box;
+        }
+        
+        .container {
+            position: relative;
+            width: 100%;            /* 부모 크기에 맞춰 확대/축소 */
+            background: url("images/schooldesk.png") no-repeat center / cover;
+            height: 100vh;
+            overflow: hidden;
+        }
+            
+        .box {
+            position: absolute;
+        }
+
+        /* 커서 올리면 확대 애니메이션
+        .box:hover{
+            transform:scale(1.01);
+            transition: transform .35s;
+        }
+        */
+
+        /* MD페이지 */
+        .shopping {
+            top: 19.6%;
+            left: 18%;
+            width: 18.5%;
+            aspect-ratio: 393 / 405;
+            background: url("images/mainobject_MD.png") no-repeat center / cover;
+        }
+        
+        /* 게임페이지 */
+        .game {
+            top: 9.5%;
+            left: 45.7%;
+            width: 27%;
+            aspect-ratio: 576 / 466;
+            background: url("images/mainobject_game.png") no-repeat center / cover;
+        }
+        
+        /* 커뮤니티페이지 */
+        .community {
+            top: 61.6%;
+            left: 13%;
+            width: 20%;
+            aspect-ratio: 427 / 344;
+            background: url("images/mainobject_community.png") no-repeat center / cover;
+        }
+        
+        /* 아티스트페이지 */
+        .artist {
+            top: 55.1%;
+            left: 36.8%;
+            width: 28%;
+            aspect-ratio: 611 / 448;
+            background: url("images/mainobject_artist.png") no-repeat center / cover;
+        }
+
+        /* 스케줄페이지 */
+        .schedule {
+            top: 51.7%;
+            left: 70.7%;
+            width: 14%;
+            aspect-ratio: 302 / 376;
+            background: url("images/mainobject_schedule.png") no-repeat center / cover;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="shop_main.html"><div class="box shopping"></div></a>
+        <a href="gamepage_start.html"><div class="box game"></div></a>
+        <a href="bsm(temp_main).html"><div class="box community"></div></a>
+        <a href="Artist_Main.html"><div class="box artist"></div></a>
+        <a href="schedule.html"><div class="box schedule"></div></a>
+    </div>
+    
+</body>
+</html>

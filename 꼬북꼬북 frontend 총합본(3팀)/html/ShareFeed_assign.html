@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../css/ShareFeed_assign.css">
+  <title>교환독서 모임 상세</title>
+</head>
+<body>
+  <div class="container">
+    <div class="banner">
+      <button id="banner-close" aria-label="닫기">&times;</button>
+      <div class="banner-text">
+        <h1>🌿 감성 교환독서 모임</h1>
+        <p>같이 읽고, 같이 나누는 시간</p>
+      </div>
+      <div class="profile-upload">
+        <img id="profile-preview" src="https://via.placeholder.com/60/2D7868/ffffff?text=ME" alt="Profile">
+        <label class="upload-label" for="profile-image">프로필 변경</label>
+        <input type="file" id="profile-image" accept="image/*">
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="info-row">
+        <span>📅 채팅방 생성 일시</span>
+        <strong>2025년 6월 21일 (토)</strong>
+      </div>
+      <div class="info-row">
+        <span>🐢 꼬북태그</span>
+        <div class="tags">
+          <strong1>#좋아요</strong1>
+          <strong1>#재밌어요</strong1>
+          <strong1>#꼬북꼬북</strong1>
+          <strong1>#즐거운</strong1>
+          <strong1>#독서</strong1>
+        </div>
+      </div>
+      <div class="info-row">
+        <span>📖 책 제목</span>
+        <strong>『보통의 언어들』 - 김이나</strong>
+      </div>
+      <div class="info-row">
+        <span>👥 인원</span>
+        <strong>6명 참여중 / 최대 10명</strong>
+      </div>
+    </div>
+
+    <div class="description">
+      안녕하세요!<br><br>
+      이번 교환독서 모임은 김이나 작가의 『보통의 언어들』을 함께 읽고, 서로의 언어와 감정을 나누는 시간으로 준비했습니다. 책 속에서 발견한 구절을 함께 나누고, 서로 다른 해석과 감상을 나눠보는 따뜻한 자리가 되었으면 합니다.<br><br>
+      처음 참여하시는 분도 부담 없이 함께하실 수 있도록 편안한 분위기로 준비했어요. 🍵
+    </div>
+
+    <button class="join-btn"> 💬그룹방 참여하기 </button>
+  </div>
+
+  <script>
+    const profileInput = document.getElementById('profile-image');
+    const profilePreview = document.getElementById('profile-preview');
+
+    profileInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          profilePreview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+    document.getElementById('banner-close').addEventListener('click', function() {
+      const popup = document.getElementById('popup');
+      if (popup) {
+        popup.style.display = 'none';
+      }
+    });
+
+  </script>
+</body>
+</html>

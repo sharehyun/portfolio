@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원 가입 - 약관동의</title>
+  <style>
+    /* Pretendard 폰트 불러오기 */
+    @font-face {
+        font-family: 'Pretendard';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Pretendard';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+        font-weight: 700;
+        font-display: swap;
+    }
+    * { font-family: 'Pretendard'; }
+    ul, ol { list-style: none; padding: 0; margin: 0; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #1a1a1a;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    .title {
+        margin: 0 auto;
+        text-align: center;
+        padding: 70px 0;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .orderStep {
+        text-align: center;
+        padding-bottom: 20px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #1a1a1a;
+    }
+
+    .orderStep ul {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .orderStep li {
+      display: inline-block;
+      font-size: 14px;
+    }
+
+    /* 수정된 부분: 현재 단계 스타일 완전히 적용 */
+    .orderStep li .current {
+        color: #035fe0;
+        font-weight: 700;
+        font-size: 15px;
+    }
+    .agreement-box {
+      padding: 20px 0;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .all-agree {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .all-agree label {
+      cursor: pointer;
+    }
+    .agreement-item {
+      border: 1px solid #CCC;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+    .agreement-item h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 0 0 7px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .agreement-item h3 span {
+      font-weight: 400;
+      font-size: 13px;
+      color: #A0A0A0;
+    }
+    .agreement-content {
+      height: 100px;
+      border: 1px solid #eee;
+      overflow-y: scroll;
+      padding: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #636363;
+      margin-top: 7px;
+      font-family: 'Pretendard', sans-serif;
+      background-color: #fafafa;
+    }
+    input[type="checkbox"] {
+      cursor: pointer;
+      accent-color: #035fe0;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    select {
+      padding: 15px;
+      font-size: 15px;
+      font-weight: 400;
+      height: 45px;
+      border: 1px solid #ccc;
+      outline: none;
+      box-sizing: border-box;
+      background: #fafafa;
+      font-family: 'Pretendard', sans-serif;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="email"]:focus,
+    select:focus {
+      outline: 1.5px solid #1a1a1a;
+    }
+    .btn-box {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .btn {
+      width: 160px;
+      height: 50px;
+      font-size: 15px;
+      font-weight: 400;
+      border: 1px solid #ccc;
+      background-color: #fafafa;
+      color: #1a1a1a;
+      cursor: pointer;
+      border-radius: 0;
+      font-family: 'Pretendard', sans-serif;
+    }
+    .btn.submit {
+      background-color: #035fe0;
+      border: 1px solid #035fe0;
+      color: #fafafa;
+      font-weight: 500;
+    }
+    @media (max-width: 768px) {
+      .btn-box {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="css/base.css" />
+</head>
+<body>
+	<div id="header">
+		
+		<div id="snbBox">
+			<h1><img src="images/hispark_crop.png" alt="(로고)" /></h1>
+			<div id="snb">
+				<ul>
+					<li><a href="#">로그인</a></li>
+					<li><a href="#">회원가입</a></li>
+					<li><a href="main.html">메인으로</a></li>
+				</ul>
+
+			</div>
+
+		</div>
+	</div>
+
+  <div class="container">
+    <div class="steps">
+      <div class="title">회원가입</div>
+      <div class="orderStep">
+        <ul>
+          <li><span class="current">1. 약관동의</span></li>
+          <li>2. 정보입력</li>
+          <li>3. 가입완료</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    <div class="agreement-box">
+      <div class="all-agree">
+        <label><input type="checkbox" id="all-agree-checkbox"> 전체 동의</label>
+      </div>
+      <div class="agreement-item">
+        <h3>
+          <label><input type="checkbox" class="agree-checkbox"> 이용약관 동의 <span>(필수)</span></label>
+        </h3>
+        <div class="agreement-content">
+          [이용약관] 제1조 (목적) 본 약관은 [회사명] (이하 "회사")가 제공하는 모든 서비스의 이용과 관련하여 회원의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
+          제2조 (용어의 정의) 본 약관에서 사용하는 용어의 정의는 다음과 같습니다. 1. "서비스"라 함은 구현되는 단말기와 상관없이 회원이 이용할 수 있는 회사의 제반 서비스를 의미합니다.
+        </div>
+      </div>
+      <div class="agreement-item">
+        <h3>
+          <label><input type="checkbox" class="agree-checkbox"> 개인정보 수집 및 이용 동의 <span>(필수)</span></label>
+        </h3>
+        <div class="agreement-content">
+          [개인정보 수집 및 이용 동의] 수집항목: 이름, 아이디, 비밀번호, 휴대전화, 이메일 주소.
+          수집목적: 회원관리 및 서비스 제공, 맞춤형 서비스 제공.
+        </div>
+      </div>
+      <div class="agreement-item">
+        <h3>
+          <label><input type="checkbox" class="agree-checkbox"> 개인정보 제3자 제공 동의 <span>(선택)</span></label>
+        </h3>
+        <div class="agreement-content">
+          [개인정보 제3자 제공] 제공대상: 제휴사, 파트너사. 제공목적: 이벤트, 프로모션, 마케팅.
+        </div>
+      </div>
+      <div class="agreement-item">
+        <h3>
+          <label><input type="checkbox" class="agree-checkbox"> 쇼핑정보 수신 동의 <span>(선택)</span></label>
+        </h3>
+        <div class="agreement-content">
+          할인쿠폰 및 이벤트, 맞춤 상품 추천 등 쇼핑정보를 SMS, 이메일로 받아볼 수 있습니다.
+        </div>
+      </div>
+      <div class="btn-box">
+        <button class="btn cancel">취소</button>
+        <a href="member_step02.html"><button class="btn submit">다음</button></a>
+      </div>
+    </div>
+  </div>
+  <script>
+    const allAgreeCheckbox = document.getElementById('all-agree-checkbox');
+    const agreeCheckboxes = document.querySelectorAll('.agree-checkbox');
+    allAgreeCheckbox.addEventListener('change', (event) => {
+      const isChecked = event.target.checked;
+      agreeCheckboxes.forEach((checkbox) => {
+        checkbox.checked = isChecked;
+      });
+    });
+    
+  </script>
+  
+    <div id="footerWrap">
+		<div id="footer">
+			
+			<div id="finfo">
+				<div id="flogo"><img src="images/hispark.png" alt="하이스파크 로고" /></div>
+				<address>
+					<ul>
+						<li>㈜스파크</li>
+						<li>대표자 김슬비</li>
+						<li class="tnone">주소 서울시 용산구 독서당로 111(한남더힐)</li>
+						<li class="webnone">소비자상담실 02)123-4567</li>
+						<li>사업자등록번호 012-345-6789</li>
+						<li class="tnone">통신판매신고 제 강남 – 1160호</li>
+						<li class="copy">COPYRIGHT © 2025 HI-SPARK <span>ALL RIGHTS RESERVED.</span></li>
+					</ul>
+				</address>
+
+			</div>
+            <div class="social-links">
+                <a href="https://www.youtube.com/user/smtown/" class="youtube-button" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://www.instagram.com/hispark__official/" class="instagram-button" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://twitter.com/hispark5/" class="x-button" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://www.facebook.com/smtown/" class="facebook-button" target="_blank" rel="noopener noreferrer"></a>
+            </div>
+		</div>
+	</div>
+</body>
+</html>

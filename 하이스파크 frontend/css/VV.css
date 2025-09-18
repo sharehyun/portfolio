@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+/* 변경된 투표 박스 스타일 */
+        .vote-options-container { width: 840px; padding:  0 30px 30px 30px; margin : 0 auto; background-color: #f7f9fc;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; gap: 20px; }
+    
+        .vote-title-re { text-align: center; font-size: 24px; font-weight: 700; color: #2d3436; margin-bottom: 10px; padding-bottom: 20px; 
+        border-bottom: 1px solid #dfe6e9; display: flex; flex-direction: column; align-items: center; }
+
+        /* 투표 종료일 스타일 */
+        .vote-end-time { font-size: 17px; color: #98a5ac; text-align: center; margin-top:-20px;}
+
+        /* 투표 항목 리스트 스타일 */
+        .vote-options { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px; margin-bottom:20px;}
+        .vote-item { 
+            background-color: #ffffff; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+            border: 2px solid transparent;
+            position: relative;
+            
+            padding-bottom:10px;
+            border-radius: 20px;
+        }
+
+        .vote-item.selected {
+            border-color: #035fe0;
+            box-shadow: 0 4px 10px rgba(3, 95, 224, 0.2);
+            
+        }
+
+        .vote-button { 
+            display: flex; 
+            flex-direction: column; 
+            width: 100%; 
+            padding: 18px 25px; 
+            font-size: 1.1em; 
+            text-align: left;
+            border: none; 
+            background-color: transparent; 
+            cursor: pointer;
+        }
+        .vote-text-line { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 8px; }
+        .vote-option-name {padding-left:10px; font-weight: 700; color: #2d3436; }
+        .vote-count-info { padding-right:10px; font-size: 0.95em; color: #636e72; }
+        .vote-count-info .percent-value { font-weight: bold; color: #e84393; }
+
+        /* 투표율 진행바 스타일 */
+        .vote-progress { background-color: #dfe6e9; height: 12px; border-radius: 6px; overflow: hidden; }
+        .progress-bar { height: 100%; background: linear-gradient(to right, #035fe0, rgb(193, 189, 250)); transition: width 0.5s ease-in-out; }
+        
+        /* 라디오 버튼 스타일링 제거 */
+        .vote-radio {
+            display: none;
+        }
+        .vote-radio.checked::after {
+            display: none;
+        }
+
+        /* 제출 버튼 스타일 */
+        .submit-button {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #fff;
+            background-color: #035fe0;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease-in-out;
+            box-sizing: border-box; /* 추가: 패딩과 보더를 너비에 포함 */
+        }
+
+        /* 투표 상태 메시지 스타일 */
+        .vote-status-message {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 10px;
+            box-sizing: border-box; /* 추가: 패딩과 보더를 너비에 포함 */
+        }
+        
+        /* 투표 진행 중 색상 */
+        .vote-status-message.imminent {
+            color: #e67e22;
+            background-color: #fef1e5;
+        }
+        
+        /* 투표 종료 색상 */
+        .vote-status-message.closed {
+            color: #e74c3c;
+            background-color: #fce7e5;
+        }
+
+        #voteActionArea { height: 60px;}

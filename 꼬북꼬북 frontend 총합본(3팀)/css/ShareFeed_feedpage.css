@@ -1,0 +1,563 @@
+    /* ===== main 스타일 ===== */
+    .all-main { width:100%; 
+                min-height:550px; 
+                border:1px solid #f0f0f0; 
+                margin-top:5px; }
+    .fig-main { padding-top:30px; 
+                margin-bottom:120px; }
+    .container { max-width:1100px; 
+                 margin:50px auto; 
+                 background:white; 
+                 padding:50px; 
+                 border-radius:7px; 
+                 box-shadow:2px 4px 4px 1px #ccc; }
+    h2 { margin-bottom:7px; 
+         color:#1a1a1a; 
+         font-weight:700; 
+         margin-left:5px; }
+    h3 { background-color: #2f81ed1c;
+         color: #2F80ED;
+         padding: 5px 10px;
+         font-size: 14px;
+         font-weight: 400;
+         border-radius: 7px;
+         display: inline-flex;
+         align-items: center;
+         position: relative;
+         letter-spacing: 1px;
+         margin-right: 1px;
+         cursor: pointer;
+         left: 7px;
+        }
+
+
+    /* POST & COMMENT BOX */
+    .post-box, .comment-box { width:100%; 
+                              margin:5px 0; 
+                              display: flex;
+                              position:relative; }
+    
+    textarea { width: 90%;
+               border-radius:7px; 
+               padding:15px; 
+               border:1px solid #ccc; 
+               outline:1.5px solid gray; 
+               font-size:15px;
+               font-weight: 400; 
+               resize:vertical; 
+               margin:7px; 
+               font-family:'Do Hyeon', sans-serif; }
+    #post-input { width:98%;  }
+    .form_textarea { width:90%;  }
+    .reply_btn {
+    height: 63px;
+    width: 65px;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+
+    .reply_box{
+        width: 90%;
+    }
+    button{
+        border:none; 
+        display:inline-flex; 
+        align-items:center; 
+        justify-content:center; 
+        border-radius:7px; 
+        cursor:pointer; 
+    }
+    .upload_btn{
+        font-size:15px; 
+        font-weight:500; 
+        padding:10px 16px; 
+    }
+    .submit_Btn { 
+        background-color:#2D7868; 
+        color:#fafafa; 
+    }
+
+
+    /* 이미지 업로드 */
+
+    .post-header { display:flex; 
+                   align-items:center; 
+                   gap:10px; 
+                   margin-bottom:10px; }
+    .post-header img { width:36px; 
+                       height:36px; 
+                       border-radius:50%; }
+    .author { font-weight:400; 
+              color:#2D7868; }
+    .time { font-size:12px; 
+            color:#777; }
+    .like-count { font-size:14px; 
+                  color:#e91e63; 
+                  margin-top:8px; }
+    .post-actions { position:absolute; 
+                    top:10px; 
+                    right:10px; }
+
+    .comments { margin-top:10px; 
+                padding-left:10px; 
+                border-left:3px solid #2D7868; }
+    .comment { background:#fff; 
+               padding:8px; 
+               margin-top:8px; 
+               border-radius:6px; 
+               border:1px solid #ddd; }
+    .post > img {
+              max-width: 40% !important;    /* 컨테이너 너비의 60% */
+              max-height: 200px !important; /* 최대 높이 180px */
+              width: auto !important;       /* 비율 유지 */
+              height: auto !important;
+              object-fit: contain;          /* 비율 유지하며 빈 공간 처리 */
+              display: block;               /* 블록 레벨로 가운데 정렬 */
+              margin: 0 auto 8px;           /* 위0, 가운 가운데, 아래8px 여백 */
+            }
+
+    /* 업로드 이미지 클릭시 확대 */
+    .image-preview { width:100%; 
+                     max-height:150px; 
+                     margin-top:10px;
+                     margin-bottom: 5px; 
+                     overflow:hidden; 
+                     border-radius:10px; 
+                     text-align:center; }
+    .image-preview img { max-width:100%; 
+                         max-height:150px; 
+                         object-fit:contain; 
+                         border-radius:10px; }
+    /* ── 이미지 자동 사이즈 & 가운데 정렬 ── */
+    .comment_contents img.landscape {
+    display: block;
+    margin: 0 auto 8px !important;
+    max-width: 70% !important;
+    height: auto !important;
+    }
+    .comment_contents img.portrait {
+    display: block;
+    margin: 0 auto 8px !important;
+    max-width: 50% !important;
+    height: auto !important;
+    }
+    .upload-tab { position:absolute; 
+                  bottom:20px; 
+                  left:20px; 
+                  z-index:10; }
+    .upload-tab label {
+      display: inline-flex;
+      justify-content: center;
+      width: 30px;
+      color: #2D7868;
+      cursor: pointer;
+      font-size: 35px;
+      margin-left: 10px;
+    }
+    .upload-tab input { display:none; }
+
+
+    /* 이미지 모달창 기능 */
+    .image-modal { display:none; 
+                   position:fixed; 
+                   z-index:2000; 
+                   top:0; 
+                   left:0; 
+                   width:100%; 
+                   height:100%; 
+                   background:rgba(0,0,0,0.8); 
+                   overflow:hidden; 
+                   cursor:grab; }
+    .image-modal-close { position:absolute; 
+                         top:20px; 
+                         right:35px; 
+                         font-size:40px; 
+                         color:#fff; 
+                         cursor:pointer; 
+                         z-index:2001; }
+    .image-modal-content { position:absolute; 
+                           top:50%; 
+                           left:50%; 
+                           transform:translate(-50%, -50%) translate(0, 0) scale(1); 
+                           transform-origin:center center; 
+                           transition:transform 0.2s ease; 
+                           max-width:90%; 
+                           max-height:90%; 
+                           object-fit:contain; 
+                           border-radius:10px; }
+
+    .comment_contents img {
+    cursor: pointer;
+    }
+
+    .post-box textarea {
+      min-height: 120px;
+    }
+    .post-box .upload-tab,
+    .post-box > button {
+      position: static !important;
+      margin-top: 8px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .post-box {
+      margin-bottom: 40px;
+      position : relative;
+        display: contents;
+    }
+    .post-box .upload-tab {
+      margin-right: 8px;
+      align-items: center;
+        display: flex;
+        gap: 15px;
+        justify-content: flex-end;
+
+    }
+    .post { position: relative; }
+    .reply_wrap { display: none !important; }
+    .reply_wrap.active { display: block !important; }
+    .btn_reply .count { display: inline-block; 
+                        font-size: 12px; 
+                        border-radius: 12px; }
+    .reply_header { display: flex; align-items: center; }
+    .user_info_box { display: flex; align-items: center; }
+    .btn_reply_setting { background: none; 
+                         border: none; 
+                         cursor: pointer; 
+                         font-size: 16px; 
+                         margin-left: auto; }
+
+    /* ─── 1. 부모 위치 기준 만들기 ─── */
+    .post .post-actions .right_area,
+    .comment_item .post-actions .right_area {
+    position: relative;
+    }
+
+    /* ─── 2. 메뉴 공통 컨테이너 ─── */
+    .settings-menu,
+    .reply-settings-menu {
+    position: absolute;
+    top: 100%;           /* 버튼 바로 아래 */
+    right: 0;            /* 버튼 우측 정렬 */
+    margin-top: 4px;     /* 버튼과 메뉴 사이 여백 */
+    width: 61px;         /* 스크린샷과 동일 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 버튼 가로 중앙 정렬 */
+    z-index: 1000;
+    }
+
+    /* ─── 3. 메뉴 버튼들 ─── */
+    .settings-menu button,
+    .reply-settings-menu button {
+    width: 61px;         /* 스크린샷과 동일 */
+    height: 40px;        /* 스크린샷과 동일 */
+    line-height: 40px;   /* 텍스트 세로 중앙 정렬 */
+    margin: 0;
+    padding: 0;
+    font-size: 14px;     /* 스크린샷과 동일 */
+    color: #333;
+    background: #fff;
+    border-radius: 7px; /* 높이의 절반으로 pill-shape */
+    cursor: pointer;
+    text-align: center;
+    }
+
+    /* ─── 4. 버튼 간 간격 ─── */
+    .settings-menu button + button,
+    .reply-settings-menu button + button {
+    margin-top: 5px;     /* 40 + 5 + 40 = 85px 전체 높이 */
+    }
+
+    /* ─── 5. 호버 효과 ─── */
+    .settings-menu button:hover,
+    .reply-settings-menu button:hover {
+    background: #f5f5f5;
+    }
+    /* ─── 피드 메뉴를 버튼보다 조금 더 오른쪽으로 이동 ─── */
+    .post .post-actions .right_area .settings-menu {
+    right: 10px;       /* 원하는 만큼 값 조정 가능 (예: -10px, -6px 등) */
+    }
+
+    /* ─── 댓글 메뉴를 버튼 바로 아래에 붙이기 ─── */
+    .comment_item .post-actions .right_area .reply-settings-menu {
+    margin-top: 0;     /* 기본 4px → 0으로 줄여서 바로 붙여 보이도록 */
+    right: 10px;
+    }
+    /* 1. 조정이 쉬운 변수 정의 */
+    :root {
+    --menu-gap: 4px;      /* 버튼 ↔ 메뉴 사이 간격 */
+    --menu-align: -10px;      /* 메뉴의 수평 오프셋 (px) */
+    }
+
+    /* 2. 버튼을 기준으로 메뉴 위치 */
+    .btn_setting,
+    .btn_reply_setting {
+    position: relative;
+    }
+
+    /* 3. 메뉴 기본 스타일 */
+    .settings-menu,
+    .reply-settings-menu {
+    position: absolute;
+    top: calc(100% + var(--menu-gap));
+    left: var(--menu-align);
+    /* 필요시 너비나 그림자 등 추가 */
+    }
+    .btn_reply_setting .reply-settings-menu {
+    left: -22px !important;   /* ← 원하는 만큼 px 값을 조정하세요 */
+    right: auto !important;   /* 기존 right:0 무시 */
+    }
+    /* 댓글 메뉴도 피드 메뉴와 똑같이 위치·간격·UI 적용 */
+    .reply-settings-menu {
+    position: absolute;           /* 기존 toggleMenu가 넣어주는 클래스에 적용 */
+    top: calc(100% + 4px) !important;  /* 버튼 바로 아래, 4px 간격 */
+    right: 10px !important;           /* 피드 메뉴와 동일하게 버튼 컨테이너 우측 10px */
+    left: auto !important;            /* 좌측 오프셋 무시 */
+    width: 61px !important;           /* 피드 메뉴 폭과 동일 */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 0 !important;
+    }
+    .reply-settings-menu button {
+    width: 61px !important;
+    height: 40px !important;
+    line-height: 40px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 14px !important;
+    background: #fff !important;
+    color: #333 !important;
+    border-radius: 7px !important;
+    text-align: center !important;
+    }
+    .reply-settings-menu button + button {
+    margin-top: 5px !important;      /* 40 + 5 + 40 = 85px 전체 높이 */
+    }
+    .reply-settings-menu button:hover {
+    background: #f5f5f5 !important;
+    }
+    .reply-settings-menu {
+    top: calc(100% + 1px) !important;  /* 버튼 바로 아래 2px 간격 */
+    }
+    .reply_header .reply-settings-menu {
+    top: 100% !important;       /* 버튼 바로 아래 */
+    margin-top: 0 !important;   /* 기존 4px → 0으로 줄여 간격 제거 */
+    }
+    .reply_header {
+    position: relative !important;
+    }
+
+    /* 2) 메뉴를 버튼 바로 밑·우측에 0px 간격으로 고정 */
+    .reply_header .reply-settings-menu {
+    top: 100% !important;      /* 헤더(버튼) 바로 아래 */
+    margin-top: 0 !important;   /* 여백 0 */
+    right: -22px !important;        /* 헤더(버튼) 우측 정렬 */
+    left: auto !important;      /* 좌측 오프셋 제거 */
+    }
+
+    .btn_like .text,
+    .btn_reply .count {
+    display: inline-block !important;
+    }
+
+    /* ─── 중첩 대댓글 포스트 스타일 그대로 적용 ─── */
+    /* 1) Nested reply 컨테이너는 들여쓰기 없이 풀폭 */
+    .reply_list.nested {
+    padding-left: 0 !important;
+    margin-top: 10px !important;    /* 상위 댓글과 동일한 간격 */
+    }
+    .reply_list.nested .reply_item {
+    margin-left: 0 !important;
+    width: 100% !important;
+    position: relative !important;  /* 버튼 위치 기준 */
+    }
+
+    /* 2) 댓글·대댓글 좋아요·말풍선 버튼 고정 */
+    .reply_list.nested .reply_item .comment_footer .right_area {
+    position: absolute !important;
+    top: 8px !important;            /* 박스 상단 근처 */
+    right: 10px !important;         /* 우측 끝에서 10px */
+    transform: none !important;      /* transform 제거 */
+    gap: 10px !important;
+    }
+
+
+/*----------------footer시작-----------------*/
+
+    .footerWrap{    
+        background-color: #444;
+        width:100%;
+        height:300px;
+
+    }
+
+    .footer{
+        width:1400px;
+        height:200px;
+        margin:0 auto;
+        padding-top:20px;
+        display:flex;
+        justify-content: space-between;
+        color:#fafafa;
+        font-weight:300;
+        font-size:15px;
+    }
+
+    .totalReview{
+        text-align: center;
+        width:100%;
+        height:56px;
+    }
+
+    .totalReview>p{
+        color:#fafafa;
+        padding: 11px 0;
+        border-bottom:2px solid #333;
+        font-size:22px;
+    }
+
+    .totalReview>p>span{
+        font-weight:700;
+        padding:0 10px;
+        font-size: 23px;
+    }
+
+
+    .footer-left{
+        width:1000px;
+        display:flex;
+        justify-content:space-between;
+        flex-direction: column;
+    }
+
+
+    /*(주)꼬북꼬북부터 Fax까지*/
+    .footer-left>p, .footer-right>p{
+        font-size:20px;
+        font-weight:700;
+    }
+
+    .infoWrap > ul{
+        display:flex;
+        margin-bottom:5px;
+    }
+
+    .infoWrap > ul > li:not(:last-child)::after{
+        content: "|";
+        color: #ccc;
+        margin: 0 15px;
+        font-weight: 300;
+    }
+
+    /*노션,깃,유튜브 로고부분*/
+    .logos{
+        width: 120px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .infoWrap{
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+
+    /*----------오른쪽------------*/
+
+    .footer-right{
+      width:400px;
+      height:180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .csWrap{
+        width:380px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .csWrap > button{
+        cursor: pointer;
+        width:180px;
+        height:40px;
+        color:#f0f0f0;
+        background:#333;
+        border:1px solid #f0f0f0;
+        border-radius: 7px;
+    }
+
+    .footer-right>.gitIds>tbody>tr>td{
+        height:25px;
+    }
+
+/*----------------footer끝-----------------*/
+
+.comment_footer {
+  display: flex;
+}
+
+.comment_footer .right_area {
+  margin-left: auto;
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+}
+.comment_footer button {
+    font-size: 13px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 7px;
+    color: #1a1a1a;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.post-actions button {
+    font-size: 13px;
+    padding: 6px;
+    border: none;
+    border-radius: 7px;
+    color: #1a1a1a;
+    cursor: pointer;
+    margin-left: 4px;
+}
+
+.btn_like .fa-thumbs-up {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    background-size: 20px 20px;
+    line-height: 20px;
+}
+.btn_like .text, .btn_reply .count {
+    display: inline-block;
+    position: relative;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    vertical-align: top;
+    padding-top: 1px;
+}
+.btn_reply .fa-comment-dots {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    background-size: 20px 20px;
+    line-height: 20px;
+}
+
+.btn_setting .fa-ellipsis {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    background-size: 20px 20px; 
+    line-height: 20px;
+   
+}
+
+

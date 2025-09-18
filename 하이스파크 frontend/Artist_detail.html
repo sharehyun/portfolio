@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/Artist_detail.css">
+    <script src="js/Artist_detail.js"></script>
+    <title>Artist_detail</title>
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        const modal = document.getElementById("imgModal");
+        const modalImg = document.getElementById("modalImg");
+        const closeBtn = document.querySelector(".close");
+
+        document.querySelectorAll(".inform td.photo img").forEach(img => {
+            img.addEventListener("click", function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            });
+        });
+
+        closeBtn.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+
+        modal.addEventListener("click", function(e) {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+
+</script>
+<body>
+     <div class="background" >
+        
+        <div class="name">
+            <h3>TEAM MEMBER</h2>
+                <h1>PARK JION</h1>
+            </div>
+        <div class="content">
+            <div class="total">
+
+                <table class="profile01">
+                    <tr>
+                        <!-- 사진 -->
+                        <td rowspan="9" class="profile_image">
+                        <img src="images/지온증사.png">
+                        </td>
+                    </tr>
+                    <tr class="profile_info">
+                        <th>이름</th>
+                        <td>박지온</td>
+                    </tr>
+                    <tr class="profile_info">
+                        <th>생년월일</th>
+                        <td>2009.05.26.</td>
+                    </tr>
+                    <tr class="profile_info">
+                        <th>MBTI</th>
+                        <td>ENFP</td>
+                    </tr>
+                    <tr class="profile_info">
+                        <th>키</th>
+                        <td>174.0cm</td>
+                    </tr>
+                    <tr class="profile_info">
+                        <th>몸무게</th>
+                        <td>60kg</td>
+                    </tr>
+                    <tr class="profile_info">
+                        <th>동아리</th>
+                        <td>제과제빵부</td>
+                    </tr>
+                    <tr class="profile_info">
+                        <th>동아리 가입한 이유</th>
+                        <td>재밌어보여서</td>
+                    </tr>
+                    <tr class="profile_info">
+                        <th>좋아하는 것</th>
+                        <td>내가 만든 빵</td>
+                    </tr>
+                </table>
+                <table class="inform">
+                    <tr>
+                        <th class="phone">전화번호</th>
+                        <th class="photo"><p style="text-align: center; width: 96%;">활동사진</p></th>
+                    </tr>
+                    <tr>
+                        <td class="phone">
+                            <button class="chatBtn" onclick="showPopup()">
+                                <p>010-2009-0526<br>
+                                
+                            </p>
+                            </button>
+                        </td>
+                        <td class="photo">
+                        <img src="images/지온_활동사진.png">
+                        <img src="images/교실에서 지온.png">
+                        <img src="images/단체사진.png">
+                        </td>
+                    </tr>
+                </table>
+                
+                <table class="inform">
+                    <tr>
+                        <th class="phone">친구들에게 한마디</th>
+                        <th class="photo"><p style="text-align: center; width: 96%;">TEAM MEMBER</p></th>
+                    </tr>
+                    <tr>
+                        <td class="phone">
+                            <div class="phone_sticker">
+                               <p>나랑 놀자<br>
+                                ヽ(◍˃ᗜ˂◍)ﾉ!
+                                
+                            </p>
+                            </div>
+                        </td>
+                        <td class="photo_member">
+                        <a href="#"><img src="images/경 증사.png"></a>
+                        <a href="#"></a><img src="images/세웅증사.png"></a>
+                        <a href="#"></a><img src="images/승민증사.png"></a>
+                        <a href="#"></a><img src="images/유현증사.png"></a>
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
+        </div>
+
+</div>
+    <!-- 모달 구조 -->
+    <div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+    </div>
+
+</body>
+</html>

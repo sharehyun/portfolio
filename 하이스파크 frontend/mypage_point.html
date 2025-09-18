@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/mypage.css">
+    <title>회원정보</title>
+    <style>
+        .profile-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            gap: 10px;
+            margin: 0 auto;
+            border : 1px solid #ccc;
+        }
+
+        .form-group {
+            margin : 30px 0 20px 0;
+            padding : 10px;
+            background : #f6faff;
+        }
+
+        .form-group p {
+            font-size : 17px;
+            color : #035fe0;
+            margin-top: 0;
+            font-weight : 500;
+        }
+
+        .point{text-align: left; padding-left : 15px;}
+
+        .mon{ padding : 10px 0 10px 100px; text-align : right;}
+
+        /* 버튼 */
+        .btn {
+            border: 1px solid #ccc;
+            background : #1a1a1a;
+            color : #FFF;
+            padding: 10px 15px;
+            margin : 10px 0px 20px 0;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 400;
+
+        }
+
+        .btn:hover {
+            background: #333;
+        }
+
+        .charge {
+            width: 90%;
+            border-collapse: collapse;
+        }
+
+        .charge tr {
+            border-bottom: 1px solid #eee;
+        }
+
+        .charge td {
+            padding: 12px 8px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="header-container">
+        
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class = "title">마이페이지</div>
+        </div>
+        <ul class="menu">
+            <li>
+            <a href = "mypage_member.html">회원정보</a>
+            </li>
+            <li>
+                <a href = "mypage_club.html">가입 동아리</a>
+            </li>
+            <li>
+                <a href = "mypage_community.html">게시글 관리</a>
+            </li>
+            <li>
+                <a href = "mypage_shop.html">주문내역</a>                
+            </li>
+            <li  class = "selected">
+                <a href = "mypage_point.html">적립금</a>                
+            </li>
+        </ul>
+        
+        <div class="content">
+            <div class="profile-details">
+                <div class="form-group">
+                    <p>보유 적립금 : <span id="currentPoint">0</span> P</p>
+                </div>
+                <table class = "charge">
+                    <tr>
+                        <td><input type = "radio" name = "point" value = "1000"></td>
+                        <td class = "point">1,000P</td>
+                        <td class = "mon">1,000원</td>
+                    </tr>
+                    <tr>
+                        <td><input type = "radio" name = "point" value = "3000"></td>
+                        <td class = "point">3,000P</td>
+                        <td class = "mon">3,000원</td>
+                    </tr>
+                    <tr>
+                        <td><input type = "radio" name = "point" value = "5000"></td>
+                        <td class = "point">5,000P</td>
+                        <td class = "mon">5,000원</td>
+                    </tr>
+                    <tr>
+                        <td><input type = "radio" name = "point" value = "10000"></td>
+                        <td class = "point">10,000P</td>
+                        <td class = "mon">10,000원</td>
+                    </tr>
+                    <tr>
+                        <td><input type = "radio" name = "point" value = "15000"></td>
+                        <td class = "point">15,000P</td>
+                        <td class = "mon">15,000원</td>
+                    </tr>
+                    <tr>
+                        <td><input type = "radio" name = "point" value = "20000"></td>
+                        <td class = "point">20,000P</td>
+                        <td class = "mon">20,000원</td>
+                    </tr>
+                    <tr>
+                        <td><input type = "radio" name = "point" value = "30000"></td>
+                        <td class = "point">30,000P</td>
+                        <td class = "mon">30,000원</td>
+                    </tr>
+                    <tr>
+                        <td><input type = "radio" name = "point" value = "50000"></td>
+                        <td class = "point">50,000P</td>
+                        <td class = "mon">50,000원</td>
+                    </tr>
+                    <tr>
+                        <td><input type = "radio" name = "point" value = "100000"></td>
+                        <td class = "point">100,000P</td>
+                        <td class = "mon">100,000원</td>
+                    </tr>
+                </table>
+                <button class = "btn" onclick = "chargeBtn()"> 충전하기 </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container">
+        
+    </div>
+
+    <script>
+        // 페이지 로드시 저장된 적립금 불러오기
+        window.onload = function() {
+            const savedPoint = localStorage.getItem('userPoint') || '0';
+            document.getElementById('currentPoint').textContent = Number(savedPoint).toLocaleString();
+        }
+
+        function chargeBtn(){
+            // 선택된 라디오 버튼 찾기
+            const selectedPoint = document.querySelector('input[name="point"]:checked');
+            
+            if (!selectedPoint) {
+                alert("충전할 적립금을 선택해주세요.");
+                return;
+            }
+            
+            const chargeAmount = parseInt(selectedPoint.value);
+            const currentPoint = parseInt(localStorage.getItem('userPoint') || '0');
+            
+            if(confirm(`${chargeAmount.toLocaleString()}P를 충전하시겠습니까?`)){
+                // 새로운 적립금 계산
+                const newPoint = currentPoint + chargeAmount;
+                
+                // localStorage에 저장
+                localStorage.setItem('userPoint', newPoint.toString());
+                
+                // 화면에 업데이트
+                document.getElementById('currentPoint').textContent = newPoint.toLocaleString();
+                
+                // 라디오 버튼 선택 해제
+                selectedPoint.checked = false;
+                
+                alert(`${chargeAmount.toLocaleString()}P가 충전되었습니다.`);
+            }
+        }
+
+        // 헤더/푸터 로드 (원래 코드 유지)
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            })
+            .catch(err => console.log('Header load failed'));
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            })
+            .catch(err => console.log('Footer load failed'));
+    </script>
+</body>
+</html>

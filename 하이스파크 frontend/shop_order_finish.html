@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문완료</title>
+    <link rel="stylesheet" href="css/order.css" />
+    <style>
+        
+    </style>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <div class="mainBox">
+        <div class="title">
+            
+            <h1>SPARK SHOP</h1>
+            <div class="hMenu hLeft">
+                <a href="order.html"><img src="images/left.png" style="width:28px;" /></a>
+            </div>
+            <div class="hMenu hRight">
+                <a href="cart.html"><img src="images/cart.png" style="width:29px;" /></a>
+                <a href="mypage_shop.html"><img src="images/user.png" style="width:28px;" /></a>
+            </div>
+        </div>
+        <div class="ordertitle">
+            주문 완료
+        </div>
+
+        <!-- 주문완료 안내 -->
+        <div class="completeNoticeBox">
+            <div class="completeTitle">주문이 완료되었습니다!</div>
+            <p>주문해 주셔서 감사합니다.</p>
+            
+            <div class="orderInfo">
+                <div>
+                    <span>주문번호</span>
+                    <span>20250908-001234</span>
+                </div>
+                <div>
+                    <span>주문금액</span>
+                    <span>₩45,600</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="contentWrap">
+            
+            <!-- 결제수단 정보 -->
+            <div class="paymentMethodBox">
+                <details open>
+                    <summary>결제수단</summary>
+                    <div>
+                        <table class="infoTable">
+                            <tbody>
+                                <tr>
+                                    <td class="label">결제방법</td>
+                                    <td class="value paymentMethod">적립금</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">결제상태</td>
+                                    <td class="value">결제완료</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+            </div>
+
+            <!-- 배송지 정보 -->
+            <div class="completeInfoBox">
+                <details open>
+                    <summary>배송지</summary>
+                    <div>
+                        <table class="infoTable">
+                            <tbody>
+                                <tr>
+                                    <td class="label">받는사람</td>
+                                    <td class="value">스파크</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">주소</td>
+                                    <td class="value">
+                                        (06234) 서울특별시 강남구 테헤란로 123<br>
+                                        스파크빌딩 101호
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">휴대전화</td>
+                                    <td class="value">010-1234-5678</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">이메일</td>
+                                    <td class="value">spark@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">배송메시지</td>
+                                    <td class="value">부재 시 경비실에 맡겨주세요</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+            </div>
+
+            <!-- 주문상품 -->
+            <div class="orderProduct">
+                <details open>
+                    <summary>주문상품 <span>(3)</span></summary>
+                    <!-- 상품 하나 -->
+                    <div class="orderProduct_one">
+                        <img src="productimage/photocard.png" alt="상품1" />
+                        <div class="productInfo">
+                            <p class="productName">HI-SRARK PHOTOCARD SET ver. 1 / 2</p>
+                            <p class="productOption">옵션: ver.1</p>
+                            <p class="productQty">수량: 1</p>
+                            <p class="productPrice">₩6,600</p>
+                        </div>
+                    </div>
+                    <!-- 반복될 부분 -->
+                    <div class="orderProduct_one">
+                        <img src="productimage/acrylic_keyring_YUHYUN.png" alt="상품2" />
+                        <div class="productInfo">
+                            <p class="productName">YUHYUN ACRYLIC KEYRING</p>
+                            <p class="productOption">옵션: YUHYUN</p>
+                            <p class="productQty">수량: 2</p>
+                            <p class="productPrice">₩24,000</p>
+                        </div>
+                    </div>
+                    <!-- 반복될 부분 -->
+                    <div class="orderProduct_one">
+                        <img src="productimage/acrylic_keyring_JEONGHUN.png" alt="상품3" />
+                        <div class="productInfo">
+                            <p class="productName">JEONGHUN ACRYLIC KEYRING</p>
+                            <p class="productOption">옵션: JEONGHUN</p>
+                            <p class="productQty">수량: 1</p>
+                            <p class="productPrice">₩12,000</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- 결제 정보 -->
+            <div class="paymentBox">
+                <details open>
+                    <summary>결제정보</summary>
+                    <div class="paymentContent">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="label">주문상품</td>
+                                    <td class="value">₩42,600</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">배송비</td>
+                                    <td class="value">₩3,000</td>
+                                </tr>
+                                <tr>
+                                    <td class="label total">최종 결제 금액</td>
+                                    <td class="value total">₩45,600</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- 쇼핑몰 이동 버튼 -->
+        <div class="buttonBox">
+            <a href="mypage_shop.html"><div class="orderDetailBtn">주문확인하기</div></a>
+            <a href="shop_main.html"><div class="MDShopBtn">쇼핑몰로 이동</div></a>
+        </div>
+    </div>
+
+</body>
+</html>

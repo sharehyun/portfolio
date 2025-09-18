@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.19/index.global.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="css/schedule.css">
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+        googleCalendarApiKey: '',
+         eventColor: 'transparent',
+        events: {
+        googleCalendarId: 'calendar.google.com'
+        },
+        fixedWeekCount: false,
+        locale: 'ko',
+        dayCellContent: function(arg){
+            return arg.date.getDate()
+        },
+        headerToolbar: {
+            left: '',// 왼쪽
+            center: 'title',         
+            right:'' // 오른쪽
+        },
+        footerToolbar: {
+            /*left: 'today',*/
+            left: '',
+            center:'prev,next',
+            /* right: 'dayGridMonth'*/
+            right:''
+        },
+        initialView: 'dayGridMonth',
+        navLinks: true, // can click day/week names to navigate views
+        businessHours: true, // display business hours
+        editable: true,
+        selectable: true,
+        /*events: [
+            {
+            title: '하이스파크 라이브방송',
+            start: '2025-09-04T20:00:00',
+            constraint: 'businessHours'
+            },
+            {
+            title: '세웅 생일방송',
+            start: '2025-09-18T20:00:00',
+            constraint: 'availableForMeeting', // defined below
+            color: '#035fe0'
+            },
+            {
+            title: '컨셉포토',
+            start: '2025-09-18',
+            end: '2025-09-21'
+            },
+            {
+            title: '컴백트레일러',
+            start: '2025-09-12T20:00:00'
+            },
+
+            // areas where "Meeting" must be dropped
+            {
+            groupId: 'availableForMeeting',
+            start: '2025-09-11T10:00:00',
+            end: '2025-09-11T16:00:00',
+            display: 'background'
+            },
+            {
+            groupId: 'availableForMeeting',
+            start: '2025-09-13T10:00:00',
+            end: '2025-09-13T16:00:00',
+            display: 'background'
+            },*/
+
+            // red areas where no events can be dropped
+           /*
+            {
+            start: '2025-09-24',
+            end: '2025-09-28',
+            overlap: false,
+            display: 'background',
+            color: '#035fe0'
+            },
+            {
+            start: '2025-09-06',
+            end: '2025-09-08',
+            overlap: false,
+            display: 'background',
+            color: '#035fe0'
+            }*/
+       /* ]*/
+        });
+        calendar.render();
+      });
+
+    </script>
+    <title>스케줄</title>
+</head>
+<body>
+    <div class="total">
+        <div class="top">
+            <div class="s_logo">
+                <img src="images/hi_logo.png">
+            </div>
+            <div class="title">
+                <div class="title_01">
+                    <span>가정통신문</span><br>  
+
+                </div>
+                <span class="title_02">청춘의 전류, 마음을 번쩍 깨우는 스파크가 되자</span>
+            </div>
+            <div class="s_no">
+                <span>제2025-830호</span>
+            </div>
+        </div>
+        <div class="main">
+            <!-- <table>
+                <tr>
+                    <th class="day">일요일</th>
+                    <th class="day">월요일</th>
+                    <th class="day">화요일</th>
+                    <th class="day">수요일</th>
+                    <th class="day">목요일</th>
+                    <th class="day">금요일</th> 
+                    <th class="day">토요일</th>
+                </tr>
+                
+
+                    
+              
+
+
+
+
+            </table> -->
+            <div class="text_01">
+                <p>학사일정</p>
+            </div>
+            <div id='calendar'></div>
+            
+        </div>
+    </div>
+</body>
+</html>

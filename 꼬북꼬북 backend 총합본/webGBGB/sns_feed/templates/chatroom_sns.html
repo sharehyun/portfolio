@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% load static %}
+  {% block title %}OOO 교환독서{% endblock %}
+  {% block extra_css %}
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_chatroomSNS_GOBOOK.css' %}">
+  {% endblock %}
+{% block content %}
+
+    <main>
+      <div class="container">
+        <h2>{{readinggroup.group_name}}</h2>
+        <div class="tags">
+          {% for tag in tag_list %}  
+            <h3>{{tag}}</h3>
+          {% endfor %}
+        </div>
+        <form method="post" action="/feedpage/create/" id="postForm" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="post-box">
+              <div class="image-preview" id="image-preview"></div>
+              <input type="hidden" name="readinggroup_id" value="{{readinggroup.id }}">
+              <textarea name="post-input" id="post-input" rows="3" placeholder="무엇이든 자유롭게 공유해보세요!"></textarea>
+              <div class="upload-tap_wrap">
+                <div class="upload-tab">
+                  <label for="image-upload">
+                    <i class="fas fa-image"></i>
+                  </label>
+                  <input type="file" name="post_file" id="image-upload"  accept="image/*" onchange="handleImageUpload(event)" hidden>    
+                  <button type="submit" class="upload_btn">올리기</button>
+                </div>
+              </div>
+          </div>
+        </form>
+        <div id="post-list">
+          {% if post %}
+            {% for p in post %}
+              <div class="post_item" data-post-id="{{p.id}}"> {# data-post-id 추가 #}
+                <div class="post_all">
+                  <div class="post-header">
+                    <div class="left_area">
+                      <div class="user_info_box">
+                        <span class="info_item">{{p.member_id.name}}</span>
+                        <span class="gap"></span>
+                        <span class="info_item">{{p.created_at|date:"Y.m.d H:i"}}</span>
+                      </div>
+                    </div>
+                    <div class="post-actions">
+                      <div class="right_area">
+                        {% if p.member_id.id == request.session.user_id %} {# 현재 로그인한 사용자와 게시물 작성자가 같을 때만 버튼 표시 #}
+                        <button class="btn_setting" type="button" data-post-id="{{p.id}}">
+                            <i class="fa-solid fa-ellipsis" style="color: #333333;"></i>                           
+                        </button>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="post_contents">
+                  {% with image=p.images.first %}
+                    {% if image %}
+                      <img src="{{ image.image.url }}" alt="post_image" class="landscape"/>
+                    {% endif %}
+                  {% endwith %}
+                  <div class="post_text" data-post-id="{{p.id}}"> {# data-post-id 추가 #}
+                    {{p.content}}
+                  </div>
+                </div>
+                <div class="comment_footer">
+                  <div class="right_area">
+                    <button class="btn_like{% if p.id in likes %} active{% endif %}"
+                    data-post-id="{{p.id}}"> {# onclick 이벤트 제거, data-post-id 사용 #}
+                      <i class="fa-regular fa-thumbs-up" style="color: #333333;" aria-hidden="true"></i>
+                      <span class="text">{{ p.postlike.count }}</span> {# 실제 좋아요 수 표시 #}
+                    </button>
+                    <button class="btn_reply" type="button" data-post-id="{{p.id}}"> {# data-post-id 추가 #}
+                        <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>                            
+                        <span class="count">{{ p.comments.count }}</span> {# 실제 댓글 수 표시 #}
+                    </button>
+                  </div>
+                </div>
+                <div class="reply_wrap" style="display: none;">
+                  <form method="post" action="/feedpage/reply/create/" class="replyForm" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="post_id" value="{{p.id }}">
+                    <div class="reply_write_area active">
+                      <div class="comment-box">
+                        <textarea class='reply_textarea' name="replytext" placeholder="주제와 무관한 댓글, 악플 등의 비방 글은 임의 삭제될 수 있습니다." style="height: 63px;"></textarea> {# id에서 class로 변경 #}
+                        <button type="submit" class="reply_btn">등록</button> {# type="submit" 추가 #}
+                      </div>
+                    </div>
+                  </form>
+                  <div class="reply_list_area">
+                    <div class="reply_list">
+                      {% for comment in p.comment_list %}
+                        <div class="reply_item" data-comment-id="{{comment.id}}"> {# data-comment-id 추가 #}
+                          <div class="user_info_box" style="margin-left: 15px;">
+                            <span class="info_item">{{comment.member_id.name}}</span>
+                            <span class="gap"></span>
+                            <span class="info_item">{{comment.created_at|date:"Y.m.d H:i"}}</span>
+                            <span class="gap"></span>
+                            {% if comment.member_id.id == request.session.user_id %} {# 현재 로그인한 사용자와 댓글 작성자가 같을 때만 버튼 표시 #}
+                              <button type="button" class="btn_reply_setting" data-comment-id="{{comment.id}}">
+                                <i class="fa-solid fa-ellipsis" style="color: #333333;"></i>
+                              </button>
+                            {% endif %}
+                          </div>
+
+                          <div class="reply_contents" style="margin-top: 10px;">
+                            <div class="reply_text" data-comment-id="{{comment.id}}" style="margin-left: 10px;">{{comment.content}}</div> {# data-comment-id 추가 #}
+                            <div class="comment_footer">
+                              <div class="right_area">
+                                <button class="btn_reply_reply" type="button" data-comment-id="{{comment.id}}"> {# data-comment-id 추가 #}
+                                    <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>                            
+                                    <span class="count">{{ comment.replies.count }}</span> {# 대댓글 수 표시 #}
+                                </button>
+                              </div>
+                            </div>
+                            
+                            <div class="nested_reply_input_area" style="display: none;"> {# 클래스명 변경 및 스타일 숨김 #}
+                              <textarea class="nested_reply_textarea" name="nestedreplytext" placeholder="답글 달기..." style="height: 63px;"></textarea> {# 클래스명 변경 #}
+                              <button type="button" class="btn_submit_nested_reply" data-parent-comment-id="{{comment.id}}">등록</button> {# 클래스명 변경 및 data-parent-comment-id 추가 #}
+                            </div>
+
+                            <div class="nested_reply_list" style="margin-left: 30px;"> {# 클래스명 변경 및 스타일 추가 #}
+                              {% for reply in comment.replies.all %} {# comment.replies.all로 대댓글 가져오기 #}
+                                <div class="reply_item nested_reply" data-comment-id="{{reply.id}}"> {# data-comment-id 추가 #}
+                                  <div class="user_info_box" style="margin-left: 15px;">
+                                    <span class="info_item">{{reply.member_id.name}}</span>
+                                    <span class="gap"></span>
+                                    <span class="info_item">{{reply.created_at|date:"Y.m.d H:i"}}</span>
+                                    {% if reply.member_id.id == request.session.user_id %} {# 현재 로그인한 사용자와 대댓글 작성자가 같을 때만 버튼 표시 #}
+                                    <button type="button" class="btn_reply_setting" data-comment-id="{{reply.id}}">
+                                      <i class="fa-solid fa-ellipsis" style="color: #333333;"></i>
+                                    </button>
+                                    {% endif %}
+                                  </div>
+                                  <div class="reply_contents" style="margin-top: 10px;">
+                                    <div class="reply_text" data-comment-id="{{reply.id}}" style="margin-left: 10px;">{{reply.content}}</div> {# data-comment-id 추가 #}
+                                  </div>
+                                </div>
+                              {% endfor %}
+                            </div>
+                          </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> {# jQuery CDN 추가 #}
+  <script src="{% static 'js/chatroomSNS_GOBOOK_updates.js' %}" defer></script> {# defer 속성 추가 #}
+  
+    <div id="image-modal" class="image-modal">
+      <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+      <img class="image-modal-content" id="modal-img">
+    </div>
+  
+{% endblock content %}
+{% block extra_js %}
+{% endblock %}

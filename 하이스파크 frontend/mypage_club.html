@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/mypage.css">
+    <title>가입 동아리</title>
+    <style>
+        .message{
+            border : 1px border #e0e0e06e;
+            background : #e0e0e06e;
+            padding : 15px 10px;
+            margin-bottom : 20px;
+            font-size : 13px;
+            font-weight : 400;
+            color : #1a1a1ab6;
+        }
+
+        /* 동아리 카드 */
+        .detail-section {
+            margin-bottom: 30px;
+        }
+
+        .club-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px 25px;
+        }
+
+        .club-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+
+        .club-card.inactive {
+            border: 1px dashed #ccc;
+            color: #999;
+            background-color: #fafafa;
+            cursor: default;
+        }
+
+
+        .club-emoji img{
+            width : 50px;
+            height : 50px;
+            margin-bottom: 10px;
+        }
+
+        .club-name {
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+
+        .join-date {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* 버튼 */
+        .btn {
+            background : #FFF;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 400;
+            transition: background 0.2s ease;
+        }
+
+        /* 하단 안내 문구 */
+        .detail-section p {
+            font-size: 12px;
+            color: #666;
+            margin-top: 15px;
+        }
+    </style>
+
+    <script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+        });
+
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        });
+    </script>
+</head>
+<body>
+
+    <div id="header-container">
+        
+    </div>
+    <div id = "blank">
+
+    </div>
+
+
+    <div class="container">
+        <div class="header">
+            <div class = "title">마이페이지</div>
+        </div>
+        <ul class="menu">
+            <li>
+            <a href = "mypage_member.html">회원정보</a>
+            </li>
+            <li  class = "selected">
+                <a href = "mypage_club.html">가입 동아리</a>
+            </li>
+            <li>
+                <a href = "mypage_community.html">게시글 관리</a>
+            </li>
+            <li>
+                <a href = "mypage_shop.html">주문내역</a>                
+            </li>
+            <li>
+                <a href = "mypage_point.html">적립금</a>                
+            </li>
+        </ul>
+        
+        <div class="content">
+            
+            <div class = "message">
+                <p>* 가입한 동아리를 확인 가능합니다.</p>
+                <p style = "font-size : 12px;">  </p>
+                <p>* 동아리 이름을 클릭하면 해당 동아리의 상세 에피소드를 확인할 수 있습니다.</p>
+            </div>
+            <div class="detail-section">
+                <div class="club-grid">
+                    <div class="club-card" onclick="viewClubEpisode('제과제빵부')">
+                        <div class="club-emoji"><img src = "/images/cake.png" alt = "제과제빵부"></div>
+                        <div class="club-name">제과제빵부</div>
+                        <div class="join-date">가입일: 2025-08-30</div>
+                    </div>
+                    
+                    <div class="club-card" onclick="viewClubEpisode('밴드부')">
+                        <div class="club-emoji"><img src = "/images/band.png" alt = "밴드부"></div>
+                        <div class="club-name">밴드부</div>
+                        <div class="join-date">가입일: 2025-08-25</div>
+                    </div>
+                    
+                    <div class="club-card" onclick="viewClubEpisode('도서부')">
+                        <div class="club-emoji"><img src = "/images/book.png" alt = "도서부"></div>
+                        <div class="club-name">도서부</div>
+                        <div class="join-date">가입일: 2025-08-20</div>
+                    </div>
+                    
+                    <div style="grid-column:1 / -1;"></div>
+                    
+                    <div class="club-card inactive">
+                        <div class="club-emoji"><img src = "/images/basket.png" alt = "운동부"></div>
+                        <div class="club-name">운동부</div>
+                        <div class="join-date">미가입</div>
+                    </div>
+                    
+                    <div class="club-card inactive">
+                        <div class="club-emoji"><img src = "/images/school.png" alt = "선도부"></div>
+                        <div class="club-name">선도부</div>
+                        <div class="join-date">미가입</div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" onclick="startNewTest()">새 테스트 시작하기</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="footer-container">
+        
+    </div>
+
+
+    <script>
+        function viewClubEpisode(clubName) {
+            alert(`${clubName} 에피소드를 다시 보여드립니다.`);
+            // 여기에 에피소드 보기 로직을 구현할 수 있습니다.
+        }
+        
+        function startNewTest() {
+            alert('새로운 동아리 매칭 테스트를 시작합니다.');
+            // 여기에 테스트 페이지로 이동하는 로직을 구현할 수 있습니다.
+        }
+    </script>
+</body>
+</html>

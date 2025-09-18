@@ -1,0 +1,747 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/mypage.css">
+    <title>주문내역</title>
+    <style>
+
+        /* 주문상품 리스트 */
+        .orderProduct{
+            width:100%;
+            background-color: white;
+        }
+
+        .orderProduct{
+            margin-top:20px;
+        }
+
+
+        .addressBox .label{
+            font-size: 14px;
+            vertical-align: top;
+            padding-top: 18px;
+        }
+
+        /* 배송지 필수정보, 주문갯수  */
+        .label .required, .orderProduct span{
+            color:#035fe0;
+        }
+
+        
+        .orderProduct_one {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px 0;
+            height:130px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .orderProduct_one:last-child {
+            border-bottom: none;
+        }
+
+        .orderProduct_one img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .productInfo {
+            flex: 1;
+        }
+
+        .productName {
+            color:#666;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .productOption {
+            font-size: 12px;
+            color: #a0a0a0;
+            margin-bottom: 3px;
+        }
+
+        .productQty {
+            font-size: 12px;
+            color: #a0a0a0;
+            margin-bottom: 6px;
+        }
+
+        .productPrice {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        /* 버튼 */
+        .btn {
+            background-color: #1a1a1a;
+            border: 1px solid #ccc;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+
+        .order-detail-actions {
+            display: flex;
+            justify-content: center;  /* 가운데 정렬 */
+            gap: 10px;                /* 버튼 사이 간격 */
+            margin-top: 20px;
+        }
+
+        /* 버튼 공통 */
+        .update, .cancel {
+            display: inline-block;  /* block 대신 inline-block */
+            margin: 0;              /* margin auto 제거 */
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .update {
+            background: #1a1a1a;
+            color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        .cancel {
+            background: #fff;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+
+        /* 주문 카드 */
+        .order-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .order-item {
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .post-title {
+            font-weight: 500;
+            font-size: 16px;
+            color: #222;
+        }
+
+        .order-date {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .order-details {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .order-field {
+            text-align: center;
+        }
+
+        .order-field label {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .order-field span {
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            font-size: 12px !important;
+        }
+
+        .fin{
+            background : #666;
+            color : white;
+        }
+
+        .can{
+            background : red;
+            color : white;
+        }
+
+        .ing{
+            background : #035fe0;
+            color : white;
+        }
+
+        .buy{
+            background : #c8def8;
+            color : white;
+        }
+        /* 상세 & 배송 카드 */
+        .detail-section {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            font-size : 15px;
+        }
+
+        .detail-section .subtitle{
+            font-size : 16px;
+            font-weight : 600;
+            margin-bottom : 10px;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+
+        .detail-item label {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .tracking-step {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+        }
+
+        .tracking-status {
+            font-weight: bold;
+            color: #035fe0;
+        }
+
+        .tracking-date {
+            font-size: 12px;
+            color: #666;
+        }
+                
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        .back-button {
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+        });
+
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        });
+    </script>
+</head>
+<body>
+
+    <div id="header-container">
+        
+    </div>
+    <div id = "blank">
+
+    </div>
+
+    <div class="container">
+       <div class="header">
+            <div class = "title">마이페이지</div>
+        </div>
+        <ul class="menu">
+            <li>
+            <a href = "mypage_member.html">회원정보</a>
+            </li>
+            <li>
+                <a href = "mypage_club.html">가입 동아리</a>
+            </li>
+            <li>
+                <a href = "mypage_community.html">게시글 관리</a>
+            </li>
+            <li  class = "selected">
+                <a href = "mypage_shop.html">주문내역</a>                
+            </li>
+            <li>
+                <a href = "mypage_point.html">적립금</a>                
+            </li>
+        </ul>
+        
+        <div class="content">
+            <!-- 주문내역 목록 -->
+            <div id="orders-list" class="section active">
+                <div class="order-list">
+                    <div class="order-item">
+                        <div class="order-header">
+                            <div class="post-title">주문번호: ORD-2025-001</div>
+                            <div class="order-date">2025-08-25</div>
+                        </div>
+                        <div class="order-details">
+                            <div class="order-field">
+                                <label>상품명</label>
+                                <span>포토카드 세트</span>
+                            </div>
+                            <div class="order-field">
+                                <label>수량</label>
+                                <span>2개</span>
+                            </div>
+                            <div class="order-field">
+                                <label>결제금액</label>
+                                <span>25,000원</span>
+                            </div>
+                            <div class="order-field">
+                                <label>주문상태</label>
+                                <span class="status-badge fin">배송완료</span>
+                                <span class="status-badge can">주문취소</span>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn btn-small" onclick="showOrderDetail('ORD-2025-001')">주문 상세</button>
+                            <button class="btn btn-small" onclick="showDeliveryTracking('ORD-2025-001')">배송 조회</button>
+                        </div>
+                    </div>
+                    
+                    <div class="order-item">
+                        <div class="order-header">
+                            <div class="post-title">주문번호: ORD-2025-002</div>
+                            <div class="order-date">2025-08-28</div>
+                        </div>
+                        <div class="order-details">
+                            <div class="order-field">
+                                <label>상품명</label>
+                                <span>공식 티셔츠</span>
+                            </div>
+                            <div class="order-field">
+                                <label>수량</label>
+                                <span>1개</span>
+                            </div>
+                            <div class="order-field">
+                                <label>결제금액</label>
+                                <span>45,000원</span>
+                            </div>
+                            <div class="order-field">
+                                <label>주문상태</label>
+                                <span class="status-badge ing">배송중</span>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn btn-small" onclick="showOrderDetail('ORD-2025-002')">주문 상세</button>
+                            <button class="btn btn-small" onclick="showDeliveryTracking('ORD-2025-002')">배송 조회</button>
+                        </div>
+                    </div>
+                    
+                    <div class="order-item">
+                        <div class="order-header">
+                            <div class="post-title">주문번호: ORD-2025-003</div>
+                            <div class="order-date">2025-08-30</div>
+                        </div>
+                        <div class="order-details">
+                            <div class="order-field">
+                                <label>상품명</label>
+                                <span>응원봉</span>
+                            </div>
+                            <div class="order-field">
+                                <label>수량</label>
+                                <span>1개</span>
+                            </div>
+                            <div class="order-field">
+                                <label>결제금액</label>
+                                <span>35,000원</span>
+                            </div>
+                            <div class="order-field">
+                                <label>주문상태</label>
+                                <span class="status-badge buy">결제완료</span>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn btn-small" onclick="showOrderDetail('ORD-2025-003')">주문 상세</button>
+                            <button class="btn btn-small" onclick="showDeliveryTracking('ORD-2025-003')">배송 조회</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 주문 상세 페이지 -->
+            <div id="order-detail" class="section">
+                <div class="back-button">
+                    <button class="btn" onclick="showOrdersList()">← 주문내역으로 돌아가기</button>
+                </div>
+                
+                <div id="order-detail-content">
+                    <!-- 주문 상세 내용이 여기에 동적으로 표시됩니다 -->
+                </div>
+                <!-- 버튼 영역 -->
+                <div class="order-detail-actions">
+                    <button onclick="openPopup()" class = "btn update">주문수정</button>
+                    <button onclick = "cancelBtn('ORD-2025-003')" class = "cancel">주문취소</button>
+                </div>
+            </div>
+            
+            <!-- 배송 조회 페이지 -->
+            <div id="delivery-tracking" class="section">
+                <div class="back-button">
+                    <button class="btn" onclick="showOrdersList()">← 주문내역으로 돌아가기</button>
+                </div>
+                <div id="delivery-tracking-content">
+                    <!-- 배송 조회 내용이 여기에 동적으로 표시됩니다 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div id="footer-container">
+        
+    </div>
+
+    <script>
+
+        function openPopup(){
+            window.open(
+                "mypage_shopupdate.html",   // 열 페이지 (같은 폴더에 popup.html 있다고 가정)
+                "infoupdate",  // 창 이름
+                "width=800,height=900,top=100,left=200,resizable=no,scrollbars=yes"
+            );
+        }
+
+        function cancelBtn(orderNum){
+            if(confirm("주문을 취소하시겠습니까?")){
+                // 주문 항목 찾기
+                const orderElement = document.querySelector(`[data-order-id="${orderNum}"]`);
+                
+                if(orderElement) {
+                    // 삭제 애니메이션 효과
+                    orderElement.classList.add('removing');
+                    
+                    // 애니메이션 완료 후 요소 제거
+                    setTimeout(() => {
+                        orderElement.remove();
+                        alert(`${orderNum} 주문이 취소되었습니다.`);
+                        
+                        // 주문 상세 페이지에 있다면 목록으로 돌아가기
+                        if(document.getElementById('order-detail').classList.contains('active')) {
+                            showOrdersList();
+                        }
+                    }, 300);
+                    
+                    // 주문 데이터에서도 제거 (실제 서버 연동 시에는 서버로 요청)
+                    delete orderData[orderNum];
+                    delete trackingData[orderNum];
+                }
+            }
+        }
+
+        function showSection(sectionName) {
+            // 모든 섹션 숨기기
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // 선택된 섹션 보이기
+            document.getElementById(sectionName).classList.add('active');
+        }
+        
+        function showOrdersList() {
+            showSection('orders-list');
+        }
+        
+        function showOrderDetail(orderNum) {
+            // 주문 상세 정보 데이터
+            const orderData = {
+                'ORD-2025-001': {
+                    orderNum: 'ORD-2025-001',
+                    orderDate: '2025-08-25',
+                    productName: '포토카드 세트',
+                    quantity: '2개',
+                    unitPrice: '12,500원',
+                    totalPrice: '25,000원',
+                    deliveryFee: '3,000원',
+                    finalAmount: '28,000원',
+                    paymentMethod: '신용카드',
+                    deliveryAddress: '서울시 강남구 역삼동 123-45',
+                    recipient: '홍길동',
+                    phone: '010-1234-5678',
+                    status: '배송완료'
+                },
+                'ORD-2025-002': {
+                    orderNum: 'ORD-2025-002',
+                    orderDate: '2025-08-28',
+                    productName: '공식 티셔츠',
+                    quantity: '1개',
+                    unitPrice: '45,000원',
+                    totalPrice: '45,000원',
+                    deliveryFee: '3,000원',
+                    finalAmount: '48,000원',
+                    paymentMethod: '카카오페이',
+                    deliveryAddress: '서울시 강남구 역삼동 123-45',
+                    recipient: '홍길동',
+                    phone: '010-1234-5678',
+                    status: '배송중'
+                },
+                'ORD-2025-003': {
+                    orderNum: 'ORD-2025-003',
+                    orderDate: '2025-08-30',
+                    productName: '응원봉',
+                    quantity: '1개',
+                    unitPrice: '35,000원',
+                    totalPrice: '35,000원',
+                    deliveryFee: '3,000원',
+                    finalAmount: '38,000원',
+                    paymentMethod: '계좌이체',
+                    deliveryAddress: '서울시 강남구 역삼동 123-45',
+                    recipient: '홍길동',
+                    phone: '010-1234-5678',
+                    status: '결제완료'
+                }
+            };
+            
+            const order = orderData[orderNum];
+            const detailContent = `
+                <div class="detail-section">
+                    <div class = "subtitle">주문 정보</div>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <label>주문번호:</label>
+                            <span>${order.orderNum}</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>주문일자:</label>
+                            <span>${order.orderDate}</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>주문상태:</label>
+                            <span class="status-badge">${order.status}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="detail-section">
+                    <div class = "subtitle">상품 정보</div>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <label>상품명:</label>
+                            <span>${order.productName}</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>수량:</label>
+                            <span>${order.quantity}</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>단가:</label>
+                            <span>${order.unitPrice}</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>상품금액:</label>
+                            <span>${order.totalPrice}</span>
+                        </div>
+                    </div>
+                <div class="orderProduct">
+                <details open>
+                    <summary>상품상세 <span>(3)</span></summary>
+                    <!-- 상품 하나 -->
+                    <div class="orderProduct_one">
+                        <img src="productimage/photocard.png" alt="상품1" />
+                        <div class="productInfo">
+                            <p class="productName">HI-SRARK PHOTOCARD SET ver. 1 / 2</p>
+                            <p class="productOption">옵션: ver.1</p>
+                            <p class="productQty">수량: 1</p>
+                            <p class="productPrice">₩5,000</p>
+                        </div>
+                    </div>
+
+                    <!-- 반복될 부분 -->
+                    <div class="orderProduct_one">
+                        <img src="productimage/acrylic_keyring_YUHYUN.png" alt="상품2" />
+                        <div class="productInfo">
+                            <p class="productName">YUHYUN ACRYLIC KEYRING</p>
+                            <p class="productOption">옵션: YUHYUN</p>
+                            <p class="productQty">수량: 2</p>
+                            <p class="productPrice">₩24,000</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 반복될 부분 -->
+                    <div class="orderProduct_one">
+                        <img src="productimage/acrylic_keyring_JEONGHUN.png" alt="상품3" />
+                        <div class="productInfo">
+                            <p class="productName">JEONGHUN ACRYLIC KEYRING</p>
+                            <p class="productOption">옵션: JEONGHUN</p>
+                            <p class="productQty">수량: 1</p>
+                            <p class="productPrice">₩12,000</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            </div>
+                
+                <div class="detail-section">
+                    <div class = "subtitle">결제 정보</div>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <label>상품금액:</label>
+                            <span>${order.totalPrice}</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>배송비:</label>
+                            <span>${order.deliveryFee}</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>결제방법:</label>
+                            <span>${order.paymentMethod}</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>총 결제금액:</label>
+                            <span>${order.finalAmount}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="detail-section">
+                    <div class = "subtitle">배송 정보</div>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <label>수령인:</label>
+                            <span>${order.recipient}</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>연락처:</label>
+                            <span>${order.phone}</span>
+                        </div>
+                        <div class="detail-item" style="grid-column: 1 / -1;">
+                            <label>배송주소:</label>
+                            <span>${order.deliveryAddress}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('order-detail-content').innerHTML = detailContent;
+            showSection('order-detail');
+        }
+        
+        function showDeliveryTracking(orderNum) {
+            // 배송 조회 정보 데이터
+            const trackingData = {
+                'ORD-2025-001': {
+                    orderNum: 'ORD-2025-001',
+                    trackingNum: '1234567890123',
+                    carrier: '대한통운',
+                    status: '배송완료',
+                    steps: [
+                        { status: '주문접수', date: '2025-08-25 14:30', location: '온라인쇼핑몰' },
+                        { status: '상품준비중', date: '2025-08-25 16:20', location: '물류센터' },
+                        { status: '배송출발', date: '2025-08-26 09:15', location: '서울물류센터' },
+                        { status: '배송중', date: '2025-08-26 14:30', location: '강남구배송센터' },
+                        { status: '배송완료', date: '2025-08-26 17:45', location: '수령완료' }
+                    ]
+                },
+                'ORD-2025-002': {
+                    orderNum: 'ORD-2025-002',
+                    trackingNum: '9876543210987',
+                    carrier: 'CJ대한통운',
+                    status: '배송중',
+                    steps: [
+                        { status: '주문접수', date: '2025-08-28 11:20', location: '온라인쇼핑몰' },
+                        { status: '상품준비중', date: '2025-08-28 15:10', location: '물류센터' },
+                        { status: '배송출발', date: '2025-08-29 08:30', location: '서울물류센터' },
+                        { status: '배송중', date: '2025-08-31 10:15', location: '강남구배송센터' }
+                    ]
+                },
+                'ORD-2025-003': {
+                    orderNum: 'ORD-2025-003',
+                    trackingNum: '-',
+                    carrier: '-',
+                    status: '결제완료',
+                    steps: [
+                        { status: '주문접수', date: '2025-08-30 13:45', location: '온라인쇼핑몰' },
+                        { status: '결제완료', date: '2025-08-30 13:47', location: '결제시스템' }
+                    ]
+                }
+            };
+            
+            const tracking = trackingData[orderNum];
+            const trackingContent = `
+                <div class="detail-section">
+                    <div class = "subtitle">배송 정보</div>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <label>주문번호:</label>
+                            <span>${tracking.orderNum}</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>송장번호:</label>
+                            <span>${tracking.trackingNum}</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>택배사:</label>
+                            <span>${tracking.carrier}</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>현재상태:</label>
+                            <span class="status-badge">${tracking.status}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="detail-section">
+                    <div class = "subtitle">배송 추적</div>
+                    ${tracking.steps.map(step => `
+                        <div class="tracking-step">
+                            <div>
+                                <div class="tracking-status">${step.status}</div>
+                                <div style="font-size: 12px; color: #666;">${step.location}</div>
+                            </div>
+                            <div class="tracking-date">${step.date}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            document.getElementById('delivery-tracking-content').innerHTML = trackingContent;
+            showSection('delivery-tracking');
+        }
+        
+    </script>
+</body>
+</html>

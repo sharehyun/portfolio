@@ -1,0 +1,341 @@
+    @font-face {
+        font-family: 'JejuStoneWall';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+        font-weight: normal;
+        font-display: swap;
+    }
+    /*이름 폰트*/
+    @import url('https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap');
+    *{margin:0; padding: 0;
+        font-optical-sizing: auto; font-style: normal;
+        box-sizing: border-box;
+    }
+    tbody{
+        width: 100%;
+    }
+    /*팀멤버 폰트*/
+    @font-face {
+        font-family: 'Cafe24Surround';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+        font-weight: normal;
+        font-display: swap;
+    }
+    /* 아티스트 글씨체 */
+    @font-face {
+        font-family: 'SchoolSafetyKid';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimGgooreogiR.woff2') format('woff2');
+        font-weight: normal;
+        font-display: swap;
+    }
+
+    /* 바디 스크롤 가능하게끔 */
+    body::before {
+      /*  margin: 0;
+        padding: 0;
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-image: url('images/칠판.jpg') ;
+        background-size: auto;
+        background-position: center; 
+        background-repeat: no-repeat center center;
+        z-index: -1;*/
+        /*  background: url('별작은버전.jpg') no-repeat center center / cover;
+        z-index: -1; /* 뒤로 보내기 */
+
+
+        margin: 0;
+       padding: 0;
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-size: auto;
+        background: url('../images/칠판.jpg') no-repeat top center/ cover;
+        z-index: -1; /* 뒤로 보내기 */
+    }
+
+
+
+    .background{
+        padding-top: 68px;
+    }
+    
+    /* 이름 예전 글씨체
+    @font-face {
+        font-family: 'SandollSamlipHobbangOutline';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');
+        font-weight: normal;
+        font-display: swap;
+    }*/
+    
+    .name{
+        text-align: center;
+    }
+    .content {
+        position: relative;
+        z-index: 1;
+        width: 60%; 
+        height: 1452px;
+        margin: 30px auto;
+    /* background: white;*/
+        min-height: 2000px;
+    }
+
+    .total {
+        background: white;
+        box-shadow: 4px 4px 6px rgba(0,0,0,0.15);
+        border-radius: 25px;
+        width: 100%;
+        height: auto;
+        padding-bottom: 20px;
+    }
+    table {
+        margin: 0 auto;
+        width: 100%;         
+        border-collapse: collapse; 
+    }
+    .name h3{
+        margin: 0 auto;
+        margin-bottom: 7px;
+        font-family: 'Cafe24Surround', sans-serif;
+        letter-spacing: 0px;
+        font-size: 24px;
+        font-weight: 400;
+        font-style: normal;
+                color: rgb(250, 250, 250);
+        
+    }
+    .name h1{
+        letter-spacing:  2px;
+        /*letter-spacing:-2px;*/
+        font-size: 55px;
+        /* font-family: 'SandollSamlipHobbangOutline', sans-serif;
+        font-weight: 400;*/
+        font-family: "JejuStoneWall", serif;
+        font-weight: 500;
+        font-style: normal;
+        margin-top: 15px;
+        color: rgb(250, 250, 250);
+    }
+    .profile01 {
+        display: flex;          /* 가로 정렬 */
+        align-items: center;    /* 위아래 가운데 정렬 */
+        padding: 30px 0px 30px 30px;
+        /*  border-bottom: 1px solid gray;*/
+
+        height: auto;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .profile_image img {
+    width: 300px;
+    margin-right: 30px;
+    height: auto;
+    border: 10px solid white;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.25);
+
+    }
+    .profile_info th{
+        font-size: 20px;
+        width: 25%;
+    }
+    .profile_info th,.profile_info td{
+        text-align: center;
+        border:  1.5px solid #95ad8d;;
+        color: #1a1a1a ;
+    }
+    .profile_info td{
+        font-size: 22px;
+
+        width: 44%;
+            font-family: 'SchoolSafetyKid', sans-serif;
+
+    }
+    .profile02{
+        width: 100%;
+        height: 200px;
+    }
+
+    .inform{
+    
+        align-items: center;    /* 위아래 가운데 정렬 */
+        padding: 30px 0px 30px 30px;
+        /*  border-bottom: 3px solid black;
+        border-left: 3px solid black;
+        border-right: 3px solid black;*/
+        height: auto;
+        width: 95%;    
+    /*    border: 1px solid blue;  */
+        
+    }
+    .inform th,.inform td{
+
+        width:50px;
+        font-size: 25px;
+        /*table-layout: fixed;*/
+        color: #1a1a1a ;
+    }
+    .inform td{
+        padding: 25px 0px;
+        height: 250px;
+    }
+    .inform td img{
+      /*  border: 2px solid #95ad8d;*/
+        border-radius: 7px;
+        height: 110%;
+        margin: 0px 5px;
+
+    }
+    .inform .photo{
+        width: 96%;
+        margin: 0 auto;
+        /*  border: 1px solid red;*/
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 5px;
+        
+    }
+    .inform .phone{
+        /* border: 1px solid black;*/
+        width: 28%;
+        text-align: center;
+        padding-right: 23px;
+    }
+    .photo{
+        
+        display: flex;
+    }
+    .inform .photo_member{
+        width: 96%;
+        margin: 0 auto;
+    /*   border: 1px solid red;*/
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 5px;
+    }
+    .photo_member{
+        
+        display: flex;
+    }
+    .inform th{
+        margin: 0 auto;
+    }
+
+
+
+    /* 연락처  css*/
+    .phone_sticker {
+        
+        width: 200px;
+        height: 250px;
+        display: inline-block;
+        background: #f5f1aa; /* 종이 포스트잇 색상 */
+        padding: 15px 25px;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+
+
+    /* 종이 그림자 효과 */
+        box-shadow: 4px 4px 6px rgba(0,0,0,0.25);
+
+    /* 살짝 기울어진 듯한 효과 */
+        transform: rotate(2deg);
+        transition: transform 0.3s ease;
+    }
+    .phone_sticker p{
+        text-align: center;
+        margin-top: 50px;
+        font-family: 'SchoolSafetyKid', sans-serif;
+    }
+    .phone_sticker:hover {
+        transform: rotate(0deg) scale(1.05);
+    }
+    .phone_sticker:active {
+        transform: scale(0.95) rotate(2deg);
+    }
+    /* 연락처  css*/
+   .chatBtn {
+    
+        width: 200px;
+        height: 250px;
+        display: inline-block;
+        background: #f5f1aa; /* 종이 포스트잇 색상 */
+        padding: 15px 25px;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        border: none;
+
+
+    /* 종이 그림자 효과 */
+        box-shadow: 4px 4px 6px rgba(0,0,0,0.25);
+
+    /* 살짝 기울어진 듯한 효과 */
+        transform: rotate(2deg);
+        transition: transform 0.3s ease;
+    }
+
+    .chatBtn p{
+        text-align: center;
+        margin-top: -60px;
+        font-family: 'SchoolSafetyKid', sans-serif;
+    }
+    .chatBtn:hover {
+        transform: rotate(0deg) scale(1.05);
+    }
+    .chatBtn:active {
+        transform: scale(0.95) rotate(2deg);
+    }
+
+
+
+    /* 모달 배경 */
+    .modal {
+        display: none; 
+        position: fixed;
+        z-index: 1000;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.8);
+        animation: fadeIn 0.3s ease;
+    }
+
+    /* 모달 이미지 */
+    .modal-content {
+        display: block;
+        margin: 5% auto;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 10px;
+        animation: zoomIn 0.3s ease;
+    }
+
+    /* 닫기 버튼 */
+    .close {
+        position: absolute;
+        top: 20px; right: 40px;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    /* 페이드인 */
+    @keyframes fadeIn {
+        from { opacity: 0; } 
+        to { opacity: 1; }
+    }
+
+    /* 이미지 줌인 */
+    @keyframes zoomIn {
+        from { transform: scale(0.7); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }

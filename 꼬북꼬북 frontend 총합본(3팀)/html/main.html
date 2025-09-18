@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/e1869b8eb9.js" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/mainpage.css" />
+    <meta charset="UTF-8">
+    <title>꼬북꼬북</title>
+
+  <script>
+    $(document).ready(function(){
+        //배너 슬라이드 script
+        const bannerSwiper = new Swiper('.myBannerSwiper', {
+            loop: true,                     // 무한 회전
+            autoplay: {                     // 자동 재생 (원하면 지워도 됨)
+            delay: 3000,
+            disableOnInteraction: false,
+            },
+            pagination: {
+            el: '.swiper-pagination',     // 우리가 HTML에 만든 div
+            clickable: true,              // 불릿 클릭으로 이동
+            },
+        });
+    });//jquery
+  </script>
+</head>
+<body>
+  <header class="fig-header">
+    <nav class="fig-nav">
+      <div class="fig-header-left">
+        <a class="fig-one" href="/" rel="noreferrer">
+          <h1 class="fig-logo">꼬북꼬북</h1>
+          <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" class="fig-exchangeimage">
+            <path d="M4.5 7h15M4.5 12h15M4.5 17h15" stroke="#2D7868" stroke-width="1.3"
+            stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <h4 class="fig-exchange-book">교환 독서</h4>
+        </a>
+      </div>
+
+      <form role="search" class="fig-searchform et3830u0">
+        <div tabindex="-1" class="fig-tabindex">
+          <div class="fig-q3rd3s et3830u1">
+            <label class="fig-formlabel">
+              <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="fig-searchimage">
+                <path fill-rule="evenodd" d="M13.28 8.18a5.1 5.1 0 11-10.2 0 5.1 5.1 0 0110.2 0zm-1.031 5.069a6.5 6.5 0 11.991-.989l4.695 4.695a.7.7 0 11-.99.99l-4.696-4.696z">
+                </path>
+              </svg>
+              <span class="fig-instant">인스턴트 검색</span>
+              <input type="text" maxlength="64" tabindex="-1" class="fig-forminput" value="">
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <div class="fig-right">
+        <a href="" class="fig-r1">회원가입</a>
+        <a href="" class="fig-r2">로그인</a>
+      </div>
+
+    </nav>
+  </header> 
+
+  <hr class="fig-hr">
+
+  <div class="fig-main">
+    <div class="mainBanner">
+      <div class="swiper myBannerSwiper">
+        <div class="swiper-wrapper">
+          <!-- 슬라이드 1 -->
+          <div class="swiper-slide" style='background: #bba3c9;'>
+            <div class="mainBanner__center">
+              <div class="mainBanner__center__text">
+                  <div class="mainBanner__center__title">내일 모든 걸 잊는다 해도<br> 가장 행복한 '오늘'을 줄게</div>
+                  <div class="mainBanner__center__subtitle">레이디 그레이<br>잊지 못할 여름향기</div>                </div>
+                <div  class='mainBanner__bookcover'><img src="../images/banner_1.jpg"></div>
+
+            </div>
+          </div>
+
+          <!-- 슬라이드 2 -->
+          <div class="swiper-slide" style="background: #b6c5d1;">
+            <div class="mainBanner__center">
+                <div class="mainBanner__center__text">
+                  <div class="mainBanner__center__title">똘병이의 스타성...<br>RIIZE 소희의 똘병이는 어떻게 성공했나</div>
+                  <div class="mainBanner__center__subtitle">똘병이가 좋아 내가 좋아?<br>**당연히소희지</div>
+                </div>
+                <div class='mainBanner__bookcover'><img src="../images/banner_2.jpg"></div>
+
+              </div>
+          </div>
+
+          <!-- 슬라이드 3 -->
+          <div class="swiper-slide" style="background: #b2d6aa;">
+            <div class="mainBanner__center">
+              <div class="mainBanner__center__text">
+                  <div class="mainBanner__center__title">'어떻게 성공할 것이냐'에서<br> '어떻게 살 것이냐'로</div>
+                  <div class="mainBanner__center__subtitle">삶은 성공이 아닌 성장의 이야기다<br>'리틀 미'의 가치를 되새기는 여정 </div>
+                </div>
+
+                <div class='mainBanner__bookcover'><img src="../images/banner_3.jpg"></div>
+
+            </div>
+          </div>
+        
+        </div>
+
+        
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+
+
+  <div class="exchngreading">
+    <!-- 참여중인 그룹 표시 -->
+    <!--로그인 세션 있을 때-->
+    <div class="feed__join">
+      <div class="feed__join_title">
+          <span>인기 교환 독서 그룹</span>
+      </div>
+      <div class="feed__join_body">
+        <div class="feed__join_body_item">
+            <div class="join_body_item_book">
+                <img src="../images/exchange_1.jpg" alt="[예술과 중력가속도] 낙하 끝의 비상">
+            </div>
+            <div class="join_body_item_groupName">
+                [예술과 중력가속도] 낙하 끝의 비상
+            </div>
+        </div>
+        <div class="feed__join_body_item">
+            <div class="join_body_item_book">
+                <img src="../images/exchange_2.jpg" alt="[7인의 집행관] 당신은 유죄인가?">
+            </div>
+            <div class="join_body_item_groupName">
+                [7인의 집행관] 당신은 유죄인가?
+            </div>
+        </div>
+        <div class="feed__join_body_item">
+            <div class="join_body_item_book">
+                <img src="../images/exchange_3.jpg" alt="[도리언 그레이의 초상] 현대 루키즘">
+            </div>
+            <div class="join_body_item_groupName">
+                [도리언 그레이의 초상] 현대 루키즘
+            </div>
+        </div>
+        <div class="feed__join_body_item">
+            <div class="join_body_item_book">
+                <img src="../images/exchange_4.jpg" alt="유령해마">
+            </div>
+            <div class="join_body_item_groupName">
+                유령해마
+            </div>
+        </div>
+        <div class="feed__join_body_item">
+            <div class="join_body_item_book">
+                <img src="../images/exchange_5.jpg" alt="외계인으로부터지구를지키는101가지방법">
+            </div>
+            <div class="join_body_item_groupName">
+                외계인으로부터지구를지키는101...
+            </div>
+        </div>
+        <div class="feed__join_body_item">
+            <div class="join_body_item_book">
+                <img src="../images/exchange_6.jpg" alt="[종의 기원담] 우리는 어디에서 오는가">
+            </div>
+            <div class="join_body_item_groupName">
+              [종의 기원담] 우리는 어디에서 오는...
+            </div>
+        </div>
+        <div class="feed__join_body_item">
+            <div class="join_body_item_book">
+                <img src="../images/exchange_7.jpg" alt="지옥행급행열차출발합니다">
+            </div>
+            <div class="join_body_item_groupName">
+              지옥행급행열차출발합니다
+            </div>
+        </div>
+        <div class="feed__join_body_item">
+            <div class="join_body_item_book">
+                <img src="../images/exchange_8.jpg" alt="[이방인] 카뮈가 말하는 부조리">
+            </div>
+            <div class="join_body_item_groupName">
+              [이방인] 카뮈가 말하는 부조리
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--로그인 세션 없을 때-->
+  <!-- <div class="exchngreading">
+    <div class="feed__join">
+      <div class="feed__join_main">
+        <h4>꼬북꼬북은 어떤 곳인가요?</h4>
+        <br>
+        <div>
+          <p>책을 읽고 사람들과 이야기를 나누는</p>
+          <p>“따뜻한 독서 커뮤니티 플랫폼”, 꼬북꼬북입니다.</p>
+          <p>당신의 감상을 들려주세요!</p>
+        </div>
+        <button type='button'>회원가입</button>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+  
+
+  <section class="ranking">
+    <div>
+      <p class="ranking__title"><i class="fa-solid fa-comment-dots"></i>리뷰 순위 Top 5</p>
+    </div>
+    <div class="CIirP0cq">
+      <div class="listWrapper">
+        <ul>
+          <li class="w_exposed_cell">
+            <a title="윈드 브레이커 공식 캐릭터북 극비 노트">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="../images/ranking_1.jpg">
+                <div class="rank">1</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">윈드 브레이커 공식 캐릭터북 극비 노트</div>
+                <div class="rating">별점 ★ 3.7</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="결국 국민이 합니다 : 이재명의 인생과 정치철학">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="../images/ranking_2.jpg">
+                <div class="rank">2</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">결국 국민이 합니다 : 이재명의 인생과 정치철학</div>
+                <div class="rating">별점 ★ 3.7</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="순간을 달리는 할머니">
+              <div class="book-cover-container">
+                  <img class='book__cover' alt="content" src="../images/ranking_3.jpg">
+                  <div class="rank">3</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">순간을 달리는 할머니</div>
+                <div class="rating">별점 ★ 3.5</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="순간을 달리는 할머니">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="../images/ranking_4.jpg" >
+                <div class="rank">4</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">순간을 달리는 할머니</div>
+                <div class="rating">별점 ★ 3.7</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="미술관에 간 할미">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="../images/ranking_5.jpg">
+                <div class="rank">5</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">미술관에 간 할미</div>
+                <div class="rating">별점 ★ 3.7</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <p class="ranking__title"><i class="fa-solid fa-chart-simple"></i>조회수 순위 Top 5</p>
+    </div>
+    <div class="CIirP0cq">
+      <div class="listWrapper">
+        <ul>
+          <li class="w_exposed_cell">
+            <a title="샨티">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="../images/ranking_6.jpg">
+                <div class="rank">1</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">샨티</div>
+                <div class="rating">별점 ★ 4.5</div>
+              </div>
+            </a>
+          </li>
+        
+          <li class="w_exposed_cell">
+            <a title="불멸의 유전자">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="../images/ranking_7.jpg">
+                <div class="rank">2</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">불멸의 유전자</div>
+                <div class="rating">별점 ★ 4.5</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="2025 심우철 실전 동형 모의고사 Season">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="../images/ranking_8.jpg">
+                <div class="rank">3</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">2025 심우철 실전 동형 모의고사 Season</div>
+                <div class="rating">별점 ★ 4.5</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="토막 난 우주를 안고서">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="../images/ranking_9.jpg">
+                <div class="rank">4</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">토막 난 우주를 안고서</div>
+                <div class="rating">별점 ★ 4.5</div>
+              </div>
+            </a>
+          </li>
+        
+          <li class="w_exposed_cell">
+            <a title="무엇도 홀로 존재하지 않는다">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="../images/ranking_10.jpg">
+                <div class="rank">5</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">무엇도 홀로 존재하지 않는다</div>
+                <div class="rating">별점 ★ 3.3</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <p class="ranking__title"><i class="fa-solid fa-bookmark"></i>북마크 순위 Top 5</p>
+    </div>
+    <div class="CIirP0cq">
+      <div class="listWrapper">
+        <ul>
+          <li class="w_exposed_cell">
+            <a title="안녕이라 그랬어">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="../images/ranking_11.jpg">
+                <div class="rank">1</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">안녕이라 그랬어</div>
+                <div class="rating">별점 ★ 4.5</div>
+              </div>
+            </a>
+          </li>
+        
+          <li class="w_exposed_cell">
+            <a title="유지만 다이어트 레시피">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="../images/ranking_12.jpg">
+                <div class="rank">2</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">유지만 다이어트 레시피</div>
+                <div class="rating">별점 ★ 4.5</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="믿을 구석 The Last Resort">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="../images/ranking_13.jpg">
+                <div class="rank">3</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">믿을 구석 The Last Resort</div>
+                <div class="rating">별점 ★ 4.0</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="w_exposed_cell">
+            <a title="첫 여름, 완주">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="../images/ranking_14.jpg">
+                <div class="rank">4</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">첫 여름, 완주</div>
+                <div class="rating">별점 ★ 4.5</div>
+              </div>
+            </a>
+          </li>
+        
+          <li class="w_exposed_cell">
+            <a title="소설 보다: 여름">
+              <div class="book-cover-container">
+                <img class='book__cover' alt="content" src="../images/ranking_15.jpg">
+                <div class="rank">5</div>
+              </div>
+              <div class="bVUVO8nJ">
+                <div class="book__title">소설 보다: 여름</div>
+                <div class="rating">별점 ★ 2.2</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <div class="footerWrap">
+    <div class="totalReview">
+      <p>꼬북꼬북 모은 리뷰<span>15,738</span>개</p>
+    </div>
+    <!--리뷰수 아래부분-->
+    <div class="footer">
+      <div class="footer-left">
+        <p>(주) 꼬북꼬북</p>
+        <div class="infoWrap">
+          <ul>
+            <li>대표자명: 꼬북이</li>
+            <li>사업자등록번호: 123-45-67890</li>
+            <li>통신판매업신고: 2025-하룰라라-01159</li>
+            <li>이메일: support@ggo.book</li>
+          </ul>
+          <ul>
+            <li>주소: 서울시 가산동 하룰라라로 궁전센터1차 123-01</li>
+            <li>Tel : 02-1991-1120</li>
+            <li>Fax : 02-1991-1120</li>
+          </ul>
+          <p>© 2025 꼬북꼬북 All rights reserved</p>
+        </div>
+        <div class="logos">
+          <img src="../images/logos/notion_white.png" style="width:30px;">
+          <img src="../images/logos/github_white.png" style="width:30px;">
+          <img src="../images/logos/youtube_white.png" style="width:30px;">
+        </div>
+      </div>
+      <div class="footer-right">
+        <p>고객센터 1234-5678 (발신자 부담)</p>
+        <div class="csWrap">
+          <button class="ntcBtn">공지사항</button>
+          <button class="inqBtn">1:1문의</button>
+        </div>
+        <table class="gitIds">
+          <tbody>
+            <tr>
+              <td colspan="3">www.ggobookggobook.com</td>
+            </tr>
+            <tr>
+              <td>이승민 @null4848</td>
+              <td>김슬비 @kb4954</td>
+              <td>김민성 @LatteMeng</td>
+            </tr>
+            <tr>
+              <td>김혜원 @hwk3005</td>
+              <td>신민철 @resader1</td>
+              <td>공유현 @sharehyun</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!--리뷰수 아래부분-->
+  </div>
+</body>
+</html>

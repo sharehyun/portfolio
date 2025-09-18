@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/e1869b8eb9.js" crossorigin="anonymous"></script>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link rel="stylesheet" type='text/css' href="../css/3my_group_list.css">
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/paginator.css" />
+  <title>꼬북꼬북 | My 교환독서</title>
+</head>
+
+<body>
+  <header class="fig-header">
+    <nav class="fig-nav">
+      <div class="fig-header-left">
+        <a class="fig-one" href="/" rel="noreferrer">
+          <h1 class="fig-logo">꼬북꼬북</h1>
+          <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="fig-exchangeimage">
+            <path d="M4.5 7h15M4.5 12h15M4.5 17h15" stroke="#2D7868" stroke-width="1.3" stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          <h4 class="fig-exchange-book">교환 독서</h4>
+        </a>
+      </div>
+
+      <form role="search" class="fig-searchform et3830u0">
+        <div tabindex="-1" class="fig-tabindex">
+          <div class="fig-q3rd3s et3830u1">
+            <label class="fig-formlabel">
+              <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                class="fig-searchimage">
+                <path fill-rule="evenodd"
+                  d="M13.28 8.18a5.1 5.1 0 11-10.2 0 5.1 5.1 0 0110.2 0zm-1.031 5.069a6.5 6.5 0 11.991-.989l4.695 4.695a.7.7 0 11-.99.99l-4.696-4.696z">
+                </path>
+              </svg>
+              <span class="fig-instant">인스턴트 검색</span>
+              <input type="text" maxlength="64" tabindex="-1" class="fig-forminput" value="">
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <div class="fig-right">
+        <a href="" class="fig-r1">회원가입</a>
+        <a href="" class="fig-r2">로그인</a>
+      </div>
+
+    </nav>
+  </header>
+
+  <hr class="fig-hr">
+  <div class="fig-main">
+    <!-- 여기에 메인 컨텐츠 입력 -->
+          <nav><!--전체틀-->
+          <!--왼쪽사이드-->
+        <!--카테고리 바뀐부분 시작-->
+        <div class="left_side">
+          <ul class="category">
+            <li class="icon"><i class="fa-solid fa-book"></i>내 리뷰<span>(3)</span></li>
+            <li class="icon"><i class="fa-solid fa-book-bookmark"></i>북마크<span>(6)</span></li>
+            <li class="icon checked"><i class="fa-solid fa-rotate"></i>교환독서<span>(5)</span></li>
+          </ul>
+        </div>
+        <!--카테고리 바뀐부분 끝-->
+
+          <!--유저네임 메인틀-->
+          <div class="main">
+            <!--프로필 부분-->
+              <div class="user_info">
+                  <div class="profile_name">
+                    <div class="nickname">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span>닉네임</span>
+                    </div>
+                    <div class="user_name">
+                        <span><!--<i class="fa-solid fa-user-lock"></i>*-->차단한 사용자</span>
+                        <span class="user_name_gap"> | </span>
+                        <span>정보수정·계정삭제</span>
+                    </div> 
+                  </div>
+              </div>
+              <div class="bookshelves">
+                <!-- <div class="B_header">
+                  <i class="fa-solid fa-user-group"></i>
+                  <span class="title">내 그룹</span>
+                  <span class="total">(1)</span>
+                </div> -->
+                  <!-- <div class="header-container">
+                      <ul class="tap-list">
+                          <li class="clicked">내 그룹</li>
+                      </ul>
+                  </div> -->
+
+
+                  <!--내 그룹 목록-->
+                  <div class="my_group">
+                      <div class="bookbox">
+                        <button class="outBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                          <div class="bookbox_cover">
+                              <img src="../images/책1.jpg">
+                          </div>
+                          <div class="group_info">
+                              <div class="booktitle">
+                                <span id="group_name">그룹명</span>
+                                <span id="group_count">(8/8)</span>
+                              </div>
+                              <div class="bookauthor">책이름</div>
+                              <div class="bookauthor">그룹소개</div>
+                              <div class="bookauthor">그룹장 닉네임</div>
+                          </div>
+                      </div>
+                      <div class="bookbox">
+                        <button class="outBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                          <div class="bookbox_cover">
+                              <img src="../images/책2.jpg">
+                          </div>
+                          <div class="group_info">
+                              <div class="booktitle">
+                                <span id="group_name">그룹명</span>
+                                <span id="group_count">(8/8)</span>
+                              </div>
+                              <div class="bookauthor">책이름</div>
+                              <div class="bookauthor">그룹소개</div>
+                              <div class="bookauthor">그룹장 닉네임</div>
+                          </div>
+                      </div>
+                      <div class="bookbox">
+                        <button class="outBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                          <div class="bookbox_cover">
+                              <img src="../images/책3.jpg">
+                          </div>
+                          <div class="group_info">
+                              <div class="booktitle">
+                                <span id="group_name">그룹명</span>
+                                <span id="group_count">(8/8)</span>
+                              </div>
+                              <div class="bookauthor">책이름</div>
+                              <div class="bookauthor">그룹소개</div>
+                              <div class="bookauthor">그룹장 닉네임</div>
+                          </div>
+                      </div>
+                      <div class="bookbox">
+                        <button class="outBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                          <div class="bookbox_cover">
+                              <img src="../images/책4.jpg">
+                          </div>
+                          <div class="group_info">
+                              <div class="booktitle">
+                                <span id="group_name">그룹명</span>
+                                <span id="group_count">(8/8)</span>
+                              </div>
+                              <div class="bookauthor">책이름</div>
+                              <div class="bookauthor">그룹소개</div>
+                              <div class="bookauthor">그룹장 닉네임</div>
+                          </div>
+                      </div>
+                      <div class="bookbox">
+                        <button class="outBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                          <div class="bookbox_cover">
+                              <img src="../images/책5.jpg">
+                          </div>
+                          <div class="group_info">
+                              <div class="booktitle">
+                                <span id="group_name">그룹명</span>
+                                <span id="group_count">(8/8)</span>
+                              </div>
+                              <div class="bookauthor">책이름</div>
+                              <div class="bookauthor">그룹소개</div>
+                              <div class="bookauthor">그룹장 닉네임</div>
+                          </div>
+                      </div>                 
+                  </div>
+              </div>
+                  <!-- paginator -->
+                <div class="pg-container">
+                  <div class="paginator">
+                      <!-- 첫 페이지, 이전 페이지 버튼 -->
+                      <div class="pg-btns">
+                          <button disabled>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M21.9323 22.5362C22.6042 21.8162 22.6042 20.7122 21.8842 20.0162L13.5562 12.0002L23.1562 2.76019L21.4762 1.00819L10.0282 12.0002L21.4763 22.9922L21.9323 22.5122L21.9323 22.5362Z" fill="currentColor"/>
+                                <path d="M12.4786 22.5362C13.1506 21.8162 13.1506 20.7122 12.4306 20.0162L4.10256 12.0002L13.7266 2.76019L12.0466 1.00819L0.598563 12.0002L12.0226 22.9922L12.4786 22.5122L12.4786 22.5362Z" fill="currentColor"/>
+                            </svg>
+                          </button>
+                          <button disabled>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M16.3325 1.47C17.0125 2.18 16.9925 3.3 16.2825 3.98L7.9425 12L17.5625 21.25L15.8825 23L4.4425 12L15.8825 1L16.3325 1.47Z" fill="currentColor"/>
+                            </svg>
+                          </button>
+                      </div>
+
+                      <!-- 페이지 번호 -->
+                      <div class="pg-numbers">
+                          <a class="active">1</a>
+                          <a>2</a>
+                          <a>3</a>
+                          <a>4</a>
+                          <a>5</a>
+                          <a>6</a>
+                      </div>
+
+                      <!-- 다음 페이지, 마지막 페이지 버튼 -->
+                      <div class="pg-btns">
+                          <button disabled>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                  <path d="M7.6675 1.47C6.9875 2.18 7.0075 3.3 7.7175 3.98L16.0575 12L6.4375 21.25L8.1175 23L19.5575 12L8.1175 1L7.6675 1.47Z" fill="currentColor"/>
+                              </svg>
+                          </button>
+                          <button disabled>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                  <path d="M2.06775 1.46381C1.39575 2.18381 1.39575 3.28781 2.11575 3.98381L10.4437 11.9998L0.84375 21.2398L2.52375 22.9918L13.9718 11.9998L2.52375 1.00781L2.06775 1.48781V1.46381Z" fill="currentColor"/>
+                                  <path d="M11.5214 1.46381C10.8494 2.18381 10.8494 3.28781 11.5694 3.98381L19.8974 11.9998L10.2734 21.2398L11.9534 22.9918L23.4014 11.9998L11.9774 1.00781L11.5214 1.48781V1.46381Z" fill="currentColor"/>
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+              <!--paginator 끝-->
+          </div>
+      </nav>   
+
+  </div>
+<script>
+  // 모든 나가기 버튼에 클릭 이벤트 연결
+  document.querySelectorAll('.outBtn').forEach(button => {
+    button.addEventListener('click', function () {
+      const bookbox = this.closest('.bookbox');
+
+      // 나가기 책에서 클릭하면 삭제
+      if (bookbox) {
+        const shouldDelete = confirm("정말 그룹을 나가시겠습니까?");
+        if (shouldDelete) {
+          bookbox.remove();
+        }
+      }
+    });
+  });
+</script>
+  <style>
+
+
+  </style>
+
+  <div class="footerWrap">
+    <div class="totalReview">
+      <p>꼬북꼬북 모은 리뷰<span>15,738</span>개</p>
+    </div>
+    <!--리뷰수 아래부분-->
+    <div class="footer">
+      <div class="footer-left">
+        <p>(주) 꼬북꼬북</p>
+        <div class="infoWrap">
+          <ul>
+            <li>대표자명: 꼬북이</li>
+            <li>사업자등록번호: 123-45-67890</li>
+            <li>통신판매업신고: 2025-하룰라라-01159</li>
+            <li>이메일: support@ggo.book</li>
+          </ul>
+          <ul>
+            <li>주소: 서울시 가산동 하룰라라로 궁전센터1차 123-01</li>
+            <li>Tel : 02-1991-1120</li>
+            <li>Fax : 02-1991-1120</li>
+          </ul>
+          <p>© 2025 꼬북꼬북 All rights reserved</p>
+        </div>
+        <div class="logos">
+          <img src="../images/logos/notion_white.png" style="width:30px;">
+          <img src="../images/logos/github_white.png" style="width:30px;">
+          <img src="../images/logos/youtube_white.png" style="width:30px;">
+        </div>
+      </div>
+      <div class="footer-right">
+        <p>고객센터 1234-5678 (발신자 부담)</p>
+        <div class="csWrap">
+          <button class="ntcBtn">공지사항</button>
+          <button class="inqBtn">1:1문의</button>
+        </div>
+        <table class="gitIds">
+          <tbody>
+            <tr>
+              <td colspan="3">www.ggobookggobook.com</td>
+            </tr>
+            <tr>
+              <td>이승민 @null4848</td>
+              <td>김슬비 @kb4954</td>
+              <td>김민성 @LatteMeng</td>
+            </tr>
+            <tr>
+              <td>김혜원 @hwk3005</td>
+              <td>신민철 @resader1</td>
+              <td>공유현 @sharehyun</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!--리뷰수 아래부분-->
+  </div>
+</body>
+
+</html>

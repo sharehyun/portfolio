@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+
+/* 글쓰기 폼 스타일 */
+.write-form { display: flex; flex-direction: column; gap: 15px; }
+.write-form input[type="text"], .write-form textarea, .write-form input[type="datetime-local"] { 
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    font-size: 1em; 
+    outline: none;
+    box-sizing: border-box;
+    width: 95%;
+}
+.write-form .form-group { display: flex; align-items: flex-start; gap: 10px; }
+.write-form label { font-weight: bold; color: #333;   width: 5%;text-align: center;padding-right: 10px; padding-top:10px;}
+
+#post-content { font-family: 'Pretendard', sans-serif;}
+#post-file {padding-top:7px; }
+        
+.write-form textarea { min-height: 300px; resize: vertical; }
+.write-form .file-group { display: flex; align-items: center; gap: 10px; }
+.write-form .file-group input[type="file"] { border: none; padding: 0; }
+        
+/* 버튼 그룹 스타일 */
+.button-group { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.button-group button { padding: 10px 20px; font-size: 1em; border: 1px solid #ddd; cursor: pointer; }
+.button-group .save-button { background-color: #035fe0; color: #fff; border-color: #035fe0; }
+.button-group .cancel-button { background-color: white; color: #333; }
+

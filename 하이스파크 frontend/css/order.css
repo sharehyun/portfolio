@@ -1,0 +1,525 @@
+*{
+    margin:0;padding:0;
+    box-sizing:border-box;
+    font-family: 'Pretendard';
+    color:#1a1a1a;
+}
+
+ol,ul{list-style: none;}
+
+button, a, summary, input[type='checkbox']{cursor:pointer;}
+
+body{
+    width:100%;height:100%;
+}
+.mainBox{
+    min-width:500px;
+    max-width:900px;
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+    border:1px solid #ccc; margin:0 auto;
+    background-color: #eee;
+}
+
+.contentWrap{
+    flex: 1;
+}
+
+.ordertitle{
+    width:100%;height:65px;
+    display:flex;align-items:center;justify-content:center;
+    color:#fafafa;background-color: #1a1a1a;
+    font-size:20px; font-weight: 700;
+}
+.title{
+    background-color: white;
+    position:relative;
+    padding:16px 0;
+    width:100%;height:60px;
+}
+h1{
+    margin: 0 95px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.hMenu{
+    position:absolute;
+    top:50%;
+    margin-top: -14px;
+}
+
+.hLeft{
+    left: 0;
+    margin-left:10px;
+}
+
+.hRight{
+    width:75px;
+    right:0;
+    margin-right:20px;
+    display: flex;
+    justify-content:space-between;
+}
+
+.cartWrapper{
+    position: relative;
+    display: inline-block;
+}
+
+.cartBadge{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(100%, 0%);
+    background-color: red;
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 18px;
+}
+
+/* box-닫히는 요소마다 변수명 추가 */
+.addressBox,.orderProduct,.paymentBox, .paymentMethodBox, .paymentTermsBox{
+    width:100%;
+    border-bottom:1px solid #ccc;
+    background-color: white;
+    padding: 0 20px;
+}
+
+.orderProduct, .paymentBox, .paymentMethodBox, .paymentTermsBox{
+    margin-top:20px;
+}
+
+
+.addressBox .label{
+    font-size: 14px;
+    vertical-align: top;
+    padding-top: 18px;
+}
+
+/* 배송지 필수정보, 주문갯수  */
+.label .required, .orderProduct span{
+    color:#035fe0;
+}
+
+/* 화살표누르면 접히는거 */
+summary, .paymentTermsBox{
+    width:100%;
+    list-style: none;
+    text-align: left;
+    position: relative;
+    font-weight: 700;
+}
+
+summary{
+    height:67px;
+    padding: 20px 0;
+}
+
+.paymentTermsBox{
+    padding:20px;
+}
+
+.paymentTermsBox label{
+    font-weight: 400;
+}
+
+summary::marker {
+    display: none;
+}
+
+summary::after {
+    content: "";
+    background: url('../images/arrow-up.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+details:not([open]) summary::after {
+    content: "";
+    background: url('../images/arrow-down.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+#acceptant, #address1, #address2{
+    width: 100%;
+}
+
+input[type="text"], select{
+    height: 42px;
+    padding: 10px 11px 10px 10px;
+    border: 1px solid #ccc;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #1a1a1a;
+    font-weight: 400;
+    line-height: 14px;
+    
+}
+
+table{
+    width:100%;
+    margin-bottom:20px;
+}
+
+.phone-input{width:42px;}
+
+.inputBox{padding:5px 0;}
+
+.inputBox li{margin-bottom:10px 0;}
+
+.phone-group,.email-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.phone-group select, .phone-group input[type="text"]{width:32%;}
+
+.phone-group span, .email-group span{line-height: 40px;}
+
+
+.email-input,.domain-select{width:48%;}
+
+.deliveryMessage, #deliveryText{
+    width:100%;
+}
+
+#deliveryText{
+    margin-top:10px;
+}
+
+
+
+
+/* 주문상품 리스트 */
+.orderProduct_one {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0;
+    height:130px;
+    border-bottom: 1px solid #eee;
+}
+
+.orderProduct_one:last-child {
+    border-bottom: none;
+}
+
+.orderProduct_one img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.productInfo {
+    flex: 1;
+}
+
+.productName {
+    color:#636363;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.productOption {
+    font-size: 12px;
+    color: #a0a0a0;
+    margin-bottom: 3px;
+}
+
+.productQty {
+    font-size: 12px;
+    color: #a0a0a0;
+    margin-bottom: 6px;
+}
+
+.productPrice {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* 결제 정보 */
+.paymentContent table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.paymentContent td {
+    padding-bottom: 16px;
+    font-size: 14px;
+}
+
+.paymentContent .label {
+    text-align: left;
+    color: #636363;
+}
+
+.paymentContent .value {
+    text-align: right;
+    color: #1a1a1a;
+    font-weight: 400;
+}
+
+.paymentContent .total {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a1a;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+}
+
+.paymentMethodBox .paymethod {
+    width:100%;
+    font-size: 14px;
+    height:56px;
+    display:block;
+    padding:17px 25px;
+    border:1px solid #ccc;
+    border-bottom:0;
+    cursor:pointer;
+}
+
+.paymentMethodBox input[type="radio"] {
+    display:none;
+}
+
+.paymentMethodBox input[type="radio"]:checked + .paymethod {
+    border:1px solid #035fe0;
+    color:#035fe0;
+    font-weight: 700;
+}
+
+/* 결제 버튼 */
+.payButtonBox {
+    text-align: center;
+}
+
+#payBtn {
+    width: 100%;
+    height: 50px;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+
+.paymethodradio{
+    border-bottom:1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+
+.paymethod-detail{
+    width:100%;
+    padding:20px;
+    border:1px solid #eee;
+    border-top:1px solid #ccc;
+    background-color: #f6faff;
+    font-size: 13px;
+    color:#636363;
+}
+
+.paymethod-detail div{
+    color:#636363;
+
+}
+.paymethod-detail .creditInputDiv{
+    padding: 5px 0;
+}
+
+input[id="paidCreditValue"]{
+    width:100px;
+    height:14px;
+    padding-left: 7px;
+}
+
+.creditInputDiv button{
+    height:21.6px;
+    padding: 0.3px 5px;
+    border:1px solid #bbb;
+    background-color: #fafafa;
+    border-radius: 2px;
+    color:#636363;
+    font-size: 12px;
+}
+
+.creditInputDiv #payAll{
+    color:#fafafa;
+    background-color: #a0a0a0;
+    border:1px solid #a0a0a0;;
+}
+
+#paidCredit-detail span{
+    color:#636363
+}
+
+
+.addressSearchBtn{
+    width:80px;
+    height:42px;
+    border:1px solid #ccc;
+    background-color: white;
+    margin-left: 4px;
+}
+
+
+.paymentTermsBox p{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.paymentTerms-check{
+    padding:17px 0;
+    border-top:1px solid #eee;
+}
+
+.paymentTerms-check label{
+    margin-left:14px;
+    vertical-align: middle;
+}
+
+.paymentTerms-check input[type="checkbox"]{
+    width:16px;height:16px;
+    vertical-align: middle;
+}
+
+
+
+
+
+
+/* 주문완료 페이지 */
+.completeNoticeBox {
+    width:100%;
+    background-color: white;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.completeTitle {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.orderInfo {
+    background-color: #fafafa;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.orderInfo div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.orderInfo div:last-child {
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+/* 추가 정보박스 클래스 */
+.completeInfoBox{
+    width:100%;
+    border-bottom:1px solid #ccc;
+    background-color: white;
+    padding: 0 20px;
+    margin-top:20px;
+}
+
+/* 완료 페이지용 정보 테이블 */
+.infoTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.infoTable td {
+    padding: 12px 0;
+    font-size: 14px;
+}
+
+.completeInfoBox tr:not(:last-child){
+    border-bottom: 1px solid #eee;
+}
+
+.infoTable tr:first-child {
+    border-bottom: 1px solid #eee;
+}
+
+.infoTable .label {
+    width: 120px;
+    text-align: left;
+    color: #636363;
+    font-weight: 400;
+}
+
+.infoTable .value {
+    text-align: left;
+    color: #1a1a1a;
+    padding-left: 20px;
+}
+
+/* 홈 이동 버튼 */
+.buttonBox {
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 30px;
+    padding: 0 20px 30px;
+}
+
+.orderDetailBtn, .MDShopBtn {
+    width: 424px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: white;
+    color: #1a1a1a;
+
+    border: 1px solid #ccc;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 50px;
+}
+
+.MDShopBtn{
+    background-color: #1a1a1a;
+    color: #fafafa;
+    border:none;
+    
+}
+
+.homeButton:hover {
+    background-color: #333;
+}

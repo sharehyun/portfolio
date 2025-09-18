@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+
+
+        /* 댓글 영역 스타일 */
+        .comments-section { margin-top: 40px; }
+        .comments-section h4 { font-size: 1.2em;  padding-bottom: 10px; border-bottom: 2px solid black;}
+        /* 댓글 아이템 */
+        .comment-item {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid #ccc;
+            padding: 15px 0;
+            position: relative; /* 아이콘 버튼 위치를 위한 설정 */
+        }
+        .comment-meta { font-size: 0.9em; color: #7f8c8d; margin-bottom: 5px;}
+        .comment-meta span { margin-right: 15px; }
+        .comment-text { line-height: 1.6; }
+        .comment-form { margin-top: 20px; display: flex; flex-direction: column; }
+        .comment-form textarea { resize: vertical; min-height: 80px; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; }
+        .comment-form button { align-self: flex-end; width: 80px; height: 45px; padding: 0; font-size: 13px; font-weight: 500; line-height: 45px;background-color:white; color:#1a1a1a;border: 1px solid #ccc; cursor: pointer; }
+        
+        /* 댓글 수정/삭제 버튼 스타일 */
+        .comment-actions {
+            position: absolute; /* comment-item에 대해 절대 위치 */
+            top: 15px; /* 상단에서 15px 아래로 */
+            right: 0; /* 우측 끝으로 이동 */
+        }
+        .comment-actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #7f8c8d;
+            font-size: 1em;
+            margin-left: 5px;
+        }
+		

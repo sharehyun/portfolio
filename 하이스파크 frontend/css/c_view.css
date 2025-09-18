@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+
+        /* 게시글 보기 스타일 */
+        .view-header { border-bottom: 2px solid #ddd; padding-bottom: 20px;padding-top: 10px; margin-bottom: 20px; }
+        .view-header h3 { margin: 0 0 10px 0; font-size: 1.5em; color: #34495e; }
+        .view-info { 
+            display: flex;
+            align-items: center;
+            margin-top:15px; 
+            font-size: 15px; 
+            color: #7f8c8d; 
+        }
+        .view-info span { padding-right:16px; }
+        .view-info .view-info-name {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #34495e;
+        }
+        .view-info-datehit {margin-left:-10px;}
+        
+        .view-content { padding: 20px 0; border-bottom: none; line-height: 1.8;}
+        .view-content img { max-width: 100%; height: auto; display: block; margin: 20px auto;}
+
+        /* 이전/다음글 스타일 */
+        .view-navigation { margin-top: 40px;}
+        .view-navigation table tbody tr:first-child { border-bottom: 1px solid #ccc; }
+        .view-navigation table tr td { padding: 20px 0;}
+        .view-navigation table tr td:first-child { text-align:left; padding-right: 20px;} 
+        .view-navigation a { text-decoration: none; color: #333;}
+        
+        /* 버튼 그룹 스타일 */
+        .button-group { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;}
+		.button-group button { width: 80px; height: 45px; padding: 0; font-size: 13px; font-weight: 500; line-height: 45px; border: 1px solid #ccc; background-color: #fff; color: #1a1a1a; cursor: pointer;}
+		.button-group .list-button {color: #fff; border-color: #2c3e50; color:#1a1a1a;border: 1px solid #ccc;}
+		
+		.button-group .edit-delete-buttons { display: flex; gap: 10px;}
+		.button-group .edit-button {background-color:white; color:#1a1a1a; border: 1px solid #ccc;}
+		.button-group .delete-button { background-color:white; color:#1a1a1a; border: 1px solid #ccc;}

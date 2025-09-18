@@ -1,0 +1,394 @@
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard';
+    color:#1a1a1a;
+}
+
+ul,ol{list-style: none;}
+
+
+
+table, tr{
+    border-collapse: collapse;
+}
+
+
+div {
+    box-sizing: border-box;
+
+}
+
+.mainBox {
+    max-width: 1230px;
+    height: 100%;
+    margin: 0 auto;
+    overflow:hidden;
+}
+
+.title {
+    font-family: 'Pretendard';
+    max-width: 1230px;
+    height: 170px;
+    margin: 0 auto;
+    text-align: center;
+    padding:70px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.location{
+    padding: 20px 0 0 0;
+    font-size:14px;
+}
+
+.location .current{
+    color:#1a1a1a;
+}
+
+
+.location ul{
+    display: flex;
+    justify-content: right;
+    margin-right:10px;
+}
+
+.location li{
+    display: inline-block;
+    text-decoration: none;
+    color: #a0a0a0;
+}
+
+
+.location li:not(:first-child):before {
+    content: "/";
+    display: inline-block;
+    margin: 0 4px 0 2px;
+    vertical-align: top;
+    color:#a0a0a0;
+}
+
+
+.orderStep {
+    max-width: 1230px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.orderStep ul {
+    display: flex;
+    justify-content: center;
+}
+
+.orderStep li {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.orderStep li .current {
+    color: #035fe0;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+
+.pricebasketbox {
+    display: flex;
+    gap: 50px;
+}
+
+
+.basketbox {
+    flex: 1;
+}
+
+.basket {
+    width: 820px;
+}
+
+.product-container{
+    width: 100%;
+    margin-bottom: 30px;
+    border-bottom:1px solid #ccc;
+}
+
+.pd_img {
+    width: 100px;
+    height: 100px;
+}
+
+.product {
+    height: 100px;
+    vertical-align: top;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.description{
+    vertical-align: top;
+    max-width:600px;
+    min-width:310px;
+    padding-left:20px;
+}
+
+.description span{
+    color:#a0a0a0;
+    font-size:15px;
+}
+
+.countselect {
+    text-align: right;
+    padding: 16px 0;
+}
+
+.optionselect {
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+    background-color: #f9f9f9;
+}
+
+.productprice {
+    font-size: 20px;
+    text-align: right;
+    padding: 10px 0 30px;
+    font-weight: bold;
+}
+
+.titleTd{
+    padding: 10px 0 30px;
+}
+
+
+
+.pricesum {
+    margin-top: 20px; width: 100%;
+    background-color: #f9f9f9;
+    font-size: 14px;
+}
+
+.pricesum td {
+    padding: 20px;
+}
+
+.pricecount {
+    width: 360px;
+    margin-bottom:10px;
+    padding: 30px 35px;
+    border: 2px solid #1a1a1a;
+}
+
+.pricecount td {
+    padding: 15px;
+    text-align: center;
+}
+
+.pricecount tr:first-child td:first-child,
+.pricecount tr:nth-child(2) td:first-child {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.pricecount tr:last-child {
+    background-color: #e8f4f8;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.checkbox-cell {
+    width: 40px;
+    text-align: center;
+    vertical-align: top;
+}
+
+input[type="checkbox"]{
+    /*아래 3개 브라우저 기본 스타일 제거할 때 필요함!!*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #ccc;
+    background: url(../images/checkbox_off.svg) no-repeat center;
+    transition: none;
+}
+
+
+input[type="checkbox"]:checked{
+    background: url(../images/checkbox_on.svg) no-repeat center;
+    transition: none;
+    border: 1px solid #d9d9d9;
+}
+
+.quantity-title{
+    color:#a0a0a0;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.quantity-btn {
+    padding: 2px 6px;
+    cursor: pointer;
+    background: white;
+    width: 36px;
+    height: 36px;
+    border:1px solid #ccc;
+}
+
+.quantity-input {
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    border-left:none;
+    border-right:none;
+    width: 50px;
+    height: 36px;
+    text-align: center;
+    padding: 2px;
+}
+
+.action-buttons {
+    margin: 20px 0;
+    text-align: center;
+    display:flex;
+    gap: 10px;
+    justify-content: end;
+}
+
+.btn {
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+    background: white;
+    width:140px;
+    height:50px;
+    font-size:15px;
+    text-align: center;
+}
+
+.delete-btn{
+    width:24px;
+    height:24px;
+    cursor:pointer;
+}
+
+.productprice-sum{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:20px;
+}
+
+.productprice-total{
+    display:flex;
+    justify-content: space-between;
+    margin-top:20px;
+    padding-top:20px;
+    border-top:1px solid #ccc;
+    font-weight:bold;
+}
+
+.order-btn{
+    width:360px;
+    margin-top: 10px;
+}
+
+.orderAll{
+    color:#fafafa;
+    border:#1a1a1a;
+    background-color: #1a1a1a;
+}
+
+.empty-cart {
+    text-align: center;
+    height:300px;
+    padding: 50px 20px;
+    color: #666;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+
+@media screen and (max-width: 1280px) {
+    .product-container {
+        margin-left:5px;
+    }
+
+}
+
+
+
+
+@media screen and (max-width: 885px) {
+    .product-container .product, .optionselect,
+    .countselect,.productprice{
+        padding-right:20px
+    }
+    
+    
+    
+    
+    .pricebasketbox {
+        display: inline-block;
+        width:100%;
+    }
+    
+    .basket{
+        width:100%;
+    }
+    
+    .pricesum{
+        display: none;
+    }
+    
+    .pricecount {
+        width: 100%;
+        border:none;
+        background-color: #fafafa;
+        padding:30px 20px;
+        
+    }
+    
+    .productprice-total{
+        border-top:1px solid #ddd;
+        font-size:20px;
+    }
+    
+    
+    .order-btn{
+        width:100%;
+    }
+    
+    .btn{
+        width:100%
+    }
+
+    
+    
+    
+}

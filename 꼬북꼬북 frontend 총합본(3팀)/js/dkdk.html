@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>댓글 테스트</title>
+  <style>
+    .disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="reply_wrap">
+    <div class="reply_write_area active">
+      <div class="comment-box">
+        <textarea rows="1" placeholder="댓글 달기..." style="height: 63px;"></textarea>
+        <button class="reply_btn">댓글</button>
+      </div>
+    </div>
+
+    <div class="reply_list_area">
+      <div class="reply_list"></div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.reply_write_area').forEach(area => {
+        const textarea = area.querySelector('textarea');
+        const btn = area.querySelector('.reply_btn');
+
+        if (textarea && btn) {
+          btn.classList.add('disabled');
+
+          textarea.addEventListener('input', () => {
+            btn.classList.toggle('disabled', textarea.value.trim().length === 0);
+          });
+
+          btn.addEventListener('click', () => {
+            if (btn.classList.contains('disabled')) return;
+
+            const replyWrap = btn.closest('.reply_wrap');
+            const replyList = replyWrap?.querySelector('.reply_list');
+            const text = textarea.value.trim();
+            if (!text || !replyList) return;
+
+            const now = new Date();
+            const date = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')}`;
+
+            const newReply = document.createElement('div');
+            newReply.className = 'reply_item';
+            newReply.innerHTML = `
+              <div class="reply_header">
+                <div class="user_info_box">
+                  <span class="info_item">닉네임</span>
+                  <span class="gap"> | </span>
+                  <span class="info_item">${date}</span>
+                  <span class="gap"> | </span>
+                  <span class="info_item">
+                    <button class="btn_comment_util report_item" type="button" data-role="report">
+                      <span class="text">신고/차단</span>
+                    </button>
+                  </span>
+                </div>
+              </div>
+              <div class="reply_contents">
+                <div class="reply_text">${text}</div>
+              </div>
+            `;
+
+            replyList.prepend(newReply);
+            textarea.value = '';
+            btn.classList.add('disabled');
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
